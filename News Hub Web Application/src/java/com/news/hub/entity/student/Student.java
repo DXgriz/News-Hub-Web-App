@@ -25,7 +25,7 @@ public class Student implements Serializable {
     private Integer academicLevel;
     private String faculty;
     private String course;
-    private String email;
+    private String emailAddress;
     
     
     public Long getId() {
@@ -117,12 +117,12 @@ public class Student implements Serializable {
         this.course = course;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
     
 }

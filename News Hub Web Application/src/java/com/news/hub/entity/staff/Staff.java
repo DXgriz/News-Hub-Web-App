@@ -22,7 +22,7 @@ public class Staff implements Serializable {
     private String staffSurname;
     private Long identityNumber;
     private String staffNumber;
-    private String email;
+    private String emailAddress;
     private String jobTitle;
     
     
@@ -92,12 +92,12 @@ public class Staff implements Serializable {
         this.staffNumber = staffNumber;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getJobTitle() {

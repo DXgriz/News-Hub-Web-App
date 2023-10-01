@@ -7,26 +7,36 @@
         <link rel="stylesheet" href="Pages/login.css" type="text/css"/>
     </head>
     <body>
+<!-- ############################################################################################# -->
+
         <div class="signup-form">
-            <form action="" >
+            <form action="RegisterAccount.do" >
                 <div class="input">
-                    <input type="text" name="firstname" placeholder="First name">
+                    <input type="text" name="firstname" placeholder="First name" required="">
                 </div>
                 <div class="input">
-                    <input type="text" name="lastname"  placeholder="Last name">
+                    <input type="text" name="lastname"  placeholder="Last name" required="">
 
                 </div>
 
                 <div class="input">
-                    <input type="email" name="email" placeholder="Email address">
+                    <input type="email" name="email" placeholder="Email address" required="">
+                </div>
+<!-- ############################################################################################# -->
+                <div class="input">
+                    <select id="userType" name="userType">
+                        <option value="student">Student</option>
+                        <option value="staff">Staff</option>
+                    </select>
+<!-- ############################################################################################# -->
                 </div>
 
                 <div class="input">
-                    <input type="password" name="password" placeholder="Password">
+                    <input type="password" name="password" placeholder="Password" required="">
                 </div>
 
                 <div class="input">
-                    <input type="password" name="confirm password" placeholder="Confirm password">
+                    <input type="password" name="confirm password" placeholder="Confirm password" required="">
                 </div>
 
                 <button type="submit">sign up</button>
@@ -35,14 +45,14 @@
             </form>
         </div>
 
-        <!-- ############################################################################################# -->
+<!-- ############################################################################################# -->
 
 
         <div class="left-side" id="left-side">
 
         </div>
 
-        <!-- ############################################################################################# -->
+<!-- ############################################################################################# -->
 
 
         <div class="login-box" id="login-box">
@@ -51,10 +61,10 @@
             </div>
             <form action="">
                 <div class="input">
-                    <input type="email" name="emai" placeholder="Please enter your emai">
+                    <input type="email" name="emai" placeholder="Please enter your emai" required="">
                 </div>
                 <div class="input">
-                    <input type="password" name="password" placeholder="Please enter your passowrd">
+                    <input type="password" name="password" placeholder="Please enter your passowrd" required="">
                 </div>
                 <button id="submit-btn" type="submit">
                     Log in
@@ -65,7 +75,7 @@
             </form>
             <button id="create-acc" onclick="showSignUp()">Create new Account</button>
         </div>
-        <!-- ############################################################################################# -->
+<!-- ############################################################################################# -->
 
         <script src="Pages/script.js"></script>
 
