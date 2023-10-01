@@ -1,0 +1,185 @@
+:root
+{
+    --primary-color: #1b4ffa;
+    --secondary-color: white;
+    --tertiary-color: #c7cbd6;
+    --first-additinal: #4d6edb;
+}
+
+
+.left-side
+{
+    position: absolute;
+    width: 45%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    
+}
+.signup
+{
+    position: absolute;
+    width: 45%;
+    height: 100%;
+    left: 55%;
+    animation-name: moveDesign;
+    animation-duration: 2s;
+
+}
+.login-box
+{
+    position: absolute;
+    top: 10%;
+    height: 60%;
+    width: 30%;
+    right: 15%;
+    border-radius: 10px;
+    background-color: var(--tertiary-color);
+    
+}
+.login-box .logo
+{
+    height: 30%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: auto;
+   
+}
+
+.logo img
+{
+ height: 100%;
+ width: 40%;   
+ position: absolute;
+ left: 30%;
+}
+.login-box form
+{
+    position: absolute;
+    top: 30%;
+    height: 70%;
+    width: 100%;
+    
+
+}
+.input
+{
+    height: 10%;
+    width: 80%;
+    left: 10%;
+    position: relative;
+    margin-top: 2%;
+    border-radius: 20px;
+    background-color: #fff;
+    overflow: hidden;
+}
+.login-box form #submit-btn
+{
+    position: absolute;
+    height: 10%;
+    width: 25%;
+    left: 10%;
+    border: none;
+    border-radius: 10px;
+    margin-top: 2%;
+    background-color: var(--first-additinal);
+    
+}
+.input input
+{
+    height: 100%;
+    width: 80%;
+    border-radius: 0px 20px;
+    position: absolute;
+    right: 0;
+    outline: none;
+    border: none;
+}
+.login-box form a
+{
+    position: absolute;
+    bottom: 50%;
+    left: 10%;
+    display: flex;
+    align-self: center;
+}
+hr
+{
+    width: 80%;
+    position: absolute;
+    bottom: 40%;
+    left: 10%;
+}
+#create-acc
+{
+    top: 80%;
+    height: 8%;
+    width: 40%;
+    left: 30%;
+    border-radius: 10px;
+    border: none;
+    position: absolute;
+
+}
+.no-display
+{
+    display: none;
+}
+/*
+-------------------------Signup------------------------*/
+.signup-form
+{
+    background-color: var(--tertiary-color);
+    position: absolute;
+    height: 90%;
+    width: 35%;
+    left: 10%;
+    top: 5%;
+
+}
+.signup-form-visible
+{
+   
+}
+.signup-form form
+{
+    position: absolute;
+    height: 80%;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+} 
+
+.signup-form form .input
+{
+    position: relative;
+    height: 7%;
+    width: 80%;
+    left: 10%;
+}
+
+.signup-form form .input input
+{
+    
+    height: 100%;
+    width: 85%;
+    font-size: medium;
+}
+
+
+
+/*
+----------------EXTRAS---------------------------------
+*/
+@keyframes moveDesign 
+{
+  from {left: 0;}
+  to {left: 55%;}      
+}
+@keyframes closeSignup {
+    from{left: 55%;}
+    to{left:0}
+}
