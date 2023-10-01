@@ -1,15 +1,73 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
--->
-<html>
+<html lang="en">
     <head>
         <title>News Hub</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="Pages/login.css" type="text/css"/>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="signup-form">
+            <form action="" >
+                <div class="input">
+                    <input type="text" name="firstname" placeholder="First name">
+                </div>
+                <div class="input">
+                    <input type="text" name="lastname"  placeholder="Last name">
+
+                </div>
+
+                <div class="input">
+                    <input type="email" name="email" placeholder="Email address">
+                </div>
+
+                <div class="input">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+
+                <div class="input">
+                    <input type="password" name="confirm password" placeholder="Confirm password">
+                </div>
+
+                <button type="submit">sign up</button>
+
+                <button onclick="showSignUp()">Login</button>
+            </form>
+        </div>
+
+        <!-- ############################################################################################# -->
+
+
+        <div class="left-side" id="left-side">
+
+        </div>
+
+        <!-- ############################################################################################# -->
+
+
+        <div class="login-box" id="login-box">
+            <div class="logo">
+                <img src="Pages/logo.png" alt="logo_image">  
+            </div>
+            <form action="">
+                <div class="input">
+                    <input type="email" name="emai" placeholder="Please enter your emai">
+                </div>
+                <div class="input">
+                    <input type="password" name="password" placeholder="Please enter your passowrd">
+                </div>
+                <button id="submit-btn" type="submit">
+                    Log in
+                </button>
+                <a href="">Forgotten password</a>
+                <hr>
+
+            </form>
+            <button id="create-acc" onclick="showSignUp()">Create new Account</button>
+        </div>
+        <!-- ############################################################################################# -->
+
+        <script src="Pages/script.js"></script>
+
     </body>
 </html>
