@@ -69,12 +69,22 @@
     height: 10%;
     width: 80%;
     left: 10%;
-    position: relative;
+    position: absolute;
     margin-top: 2%;
     border-radius: 20px;
     background-color: #fff;
     overflow: hidden;
-}
+}/*
+.input-img
+{
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: red;
+}*/
+
 .login-box form #submit-btn
 {
     position: absolute;
