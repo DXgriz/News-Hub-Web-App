@@ -1,0 +1,37 @@
+/* 
+    Created on : Oct 3, 2023, 12:09:54 PM
+    Author     : DXgriz
+*/
+
+.header {
+    display: flex;
+    height: fit-content;
+    width: border-box;
+    background-color: #4d6edb;
+
+}
+
+.logo img
+{
+    height: 10%;
+    width: 10%;
+    position: absolute;
+    left: 0%;
+    border-radius: 100%;
+    display: flex;
+}
+
+.nav-list{
+    display: flex;
+    position: absolute;
+    align-items: flex-end;
+    padding-left: 65%;
+    list-style: none;
+}
+
+.body_content{
+    position: relative;
+    display: inline-block;
+    box-sizing: content-box;
+    text-decoration: antiquewhite;
+}

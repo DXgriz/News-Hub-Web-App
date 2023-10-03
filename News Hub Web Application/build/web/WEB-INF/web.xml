@@ -4,9 +4,17 @@
         <servlet-name>RegisterAccount</servlet-name>
         <servlet-class>com.news.hub.web.controller.RegisterAccount</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StartAppServlet</servlet-name>
+        <servlet-class>com.news.hub.web.controller.StartAppServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StartAppServlet</servlet-name>
+        <url-pattern>/StartAppServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

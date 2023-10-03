@@ -1,4 +1,4 @@
-package com.news.hub.mail;
+package com.news.hub.entity.mail;
 
 import java.util.Date;
 import java.util.List;
@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.7.10.v20211216-rNA", date="2023-10-01T20:57:13")
+@Generated(value="EclipseLink-2.7.10.v20211216-rNA", date="2023-10-03T16:08:15")
 @StaticMetamodel(Email.class)
 public class Email_ { 
 
