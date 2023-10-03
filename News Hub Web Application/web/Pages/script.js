@@ -46,6 +46,6 @@ function showSignUp(){
     left.classList.toggle('signup');        
 
     }
-    }
+    
   
 
