@@ -15,13 +15,13 @@ jobTitle.classList.add("invisible");
 
 userType.addEventListener("change",function(){
     
-    if(userType.value == "student")
+    if(userType.value === "student")
     {
         //document.getElementById("test").classList.toggle("invisible");
         level.classList.remove("invisible");
         course.classList.remove("invisible");
         faculty.classList.remove("invisible");
-    }else if(userType == "staff")
+    }else if(userType === "staff")
     {
         staffNumber.classList.remove("invisible");
         jobTitle.classList.remove("invisible");
@@ -46,3 +46,6 @@ function showSignUp(){
     left.classList.toggle('signup');        
 
     }
+    }
+  
+

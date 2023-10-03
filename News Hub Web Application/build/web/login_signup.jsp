@@ -71,7 +71,7 @@
         <div class="left-side" id="left-side">
             <div class="outside-design">
                 <div class="design-container">
-                    <img src="Pages/logo.png" alt="">
+                    <img src="Pages/graduation.png" alt="">
                 </div>
             </div>
         </div>
