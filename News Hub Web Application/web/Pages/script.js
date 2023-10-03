@@ -21,6 +21,7 @@ userType.addEventListener("change",function(){
         level.classList.remove("invisible");
         course.classList.remove("invisible");
         faculty.classList.remove("invisible");
+        
     }else if(userType === "staff")
     {
         staffNumber.classList.remove("invisible");

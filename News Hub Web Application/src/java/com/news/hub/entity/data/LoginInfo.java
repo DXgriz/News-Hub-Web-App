@@ -1,4 +1,4 @@
-package com.news.hub.entity.staff;
+package com.news.hub.entity.data;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -11,20 +11,15 @@ import javax.persistence.Id;
  * @author DXgriz
  */
 @Entity
-public class Staff implements Serializable {
+public class LoginInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    private String staffName;
-    private String staffSurname;
-    private Long identityNumber;
-    private String staffNumber;
     private String emailAddress;
-    private String jobTitle;
-    
+    private String password;
     
 
     public Long getId() {
@@ -45,10 +40,10 @@ public class Staff implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Staff)) {
+        if (!(object instanceof LoginInfo)) {
             return false;
         }
-        Staff other = (Staff) object;
+        LoginInfo other = (LoginInfo) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -57,39 +52,7 @@ public class Staff implements Serializable {
 
     @Override
     public String toString() {
-        return "com.news.hub.entity.staff.Staff[ id=" + id + " ]";
-    }
-
-    public String getStaffName() {
-        return staffName;
-    }
-
-    public void setStaffName(String staffName) {
-        this.staffName = staffName;
-    }
-
-    public String getStaffSurname() {
-        return staffSurname;
-    }
-
-    public void setStaffSurname(String staffSurname) {
-        this.staffSurname = staffSurname;
-    }
-
-    public Long getIdentityNumber() {
-        return identityNumber;
-    }
-
-    public void setIdentityNumber(Long identityNumber) {
-        this.identityNumber = identityNumber;
-    }
-
-    public String getStaffNumber() {
-        return staffNumber;
-    }
-
-    public void setStaffNumber(String staffNumber) {
-        this.staffNumber = staffNumber;
+        return "com.news.hub.entity.data.LoginInfo[ id=" + id + " ]";
     }
 
     public String getEmailAddress() {
@@ -100,12 +63,12 @@ public class Staff implements Serializable {
         this.emailAddress = emailAddress;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public String getPassword() {
+        return password;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    public void setPassword(String password) {
+        this.password = password;
     }
     
 }
