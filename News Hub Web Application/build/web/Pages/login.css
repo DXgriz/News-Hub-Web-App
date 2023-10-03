@@ -69,22 +69,12 @@
     height: 10%;
     width: 80%;
     left: 10%;
-    position: absolute;
+    position: relative;
     margin-top: 2%;
     border-radius: 20px;
     background-color: #fff;
     overflow: hidden;
-}/*
-.input-img
-{
-    position: absolute;
-    width: 20%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: red;
-}*/
-
+}
 .login-box form #submit-btn
 {
     position: absolute;
@@ -178,8 +168,32 @@ hr
     width: 85%;
     font-size: medium;
 }
+/*-----------Sign up hidden info
+------------------------------------------------*/
+.input #title
+{
+    visibility: hidden;
+    background-color: #1b4ffa;
+}
 
+.invisible
+{
+    visibility: hidden;
+    display: none;
+}
+/*
+ TO BE CHANGED
+*/
+select
+{
+    position: absolute;
+    right: 0;
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
 
+}
 
 /*
 ----------------EXTRAS---------------------------------

@@ -168,8 +168,32 @@ hr
     width: 85%;
     font-size: medium;
 }
+/*-----------Sign up hidden info
+------------------------------------------------*/
+.input #title
+{
+    visibility: hidden;
+    background-color: #1b4ffa;
+}
 
+.invisible
+{
+    visibility: hidden;
+    display: none;
+}
+/*
+ TO BE CHANGED
+*/
+select
+{
+    position: absolute;
+    right: 0;
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
 
+}
 
 /*
 ----------------EXTRAS---------------------------------

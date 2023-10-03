@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="Pages/login.css" type="text/css"/>
     </head>
     <body>
-<!-- ############################################################################################# -->
+    <!-- ############################################################################################# -->
 
         <div class="signup-form">
             <form action="RegisterAccount.do" >
@@ -22,15 +22,35 @@
                 <div class="input">
                     <input type="email" name="email" placeholder="Email address" required="">
                 </div>
-<!-- ############################################################################################# -->
+                <!-- ############################################################################################# -->
                 <div class="input">
-                    <select id="userType" name="userType">
+                    <select id="userType" name="userType" onselect="onOptionSelect()">
+                        <option value="0">--Select type--</option>
                         <option value="student">Student</option>
                         <option value="staff">Staff</option>
                     </select>
-<!-- ############################################################################################# -->
                 </div>
-
+                <!-- #######################Staff extra details#############################-->
+                    <div class="input" id="staffNumber">
+                        <input type="text" name="StaffNumber" placeholder="Staff Number" required="">
+                    </div>
+                    <div class="input" id="jobTitle">
+                        <input type="text" name="jobTitle" placeholder="Occupation" required="">
+                    </div>
+                <!--#########################################################################-->
+                
+                <!-- #######################Student extra Details#############################-->
+                    <div class="input" id="faculty">
+                        <input type="text" name="faculty"  placeholder="Faculty" required="">
+                    </div>
+                    <div class="input" id="course">
+                        <input type="text" name="course" placeholder="Course" required="">
+                    </div>
+                    <div class="input" id="level">
+                        <input type="text" name="level" placeholder="Academic level" required="">
+                    </div>
+                <!--#########################################################################-->
+                
                 <div class="input">
                     <input type="password" name="password" placeholder="Password" required="">
                 </div>
