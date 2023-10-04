@@ -3,7 +3,6 @@ package com.news.hub.web.controller;
 import com.news.hub.dao.NotificationFacadeLocal;
 import com.news.hub.entity.notifications.Notification;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
