@@ -8,6 +8,10 @@
         <servlet-name>StartAppServlet</servlet-name>
         <servlet-class>com.news.hub.web.controller.StartAppServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>com.news.hub.web.controller.Login</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>StartAppServlet</servlet-name>
         <url-pattern>/StartAppServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

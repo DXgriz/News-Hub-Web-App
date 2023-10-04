@@ -7,18 +7,21 @@
         <link rel="stylesheet" href="Pages/login.css" type="text/css"/>
     </head>
     <body>
-    <!-- ############################################################################################# -->
+        <!-- ############################################################################################# -->
 
         <div class="signup-form">
-            <form action="RegisterAccount.do" >
+
+            <form action="RegisterAccount.do" method="POST">
+
                 <div class="input">
                     <input type="text" name="firstname" placeholder="First name" required="">
                 </div>
                 <div class="input">
                     <input type="text" name="lastname"  placeholder="Last name" required="">
-
                 </div>
-
+                <div class="input">
+                    <input type="text" name="identity" placeholder="ID or Passport Number" required="">
+                </div>
                 <div class="input">
                     <input type="email" name="email" placeholder="Email address" required="">
                 </div>
@@ -31,15 +34,25 @@
                     </select>
                 </div>
                 <!-- #######################Staff extra details#############################-->
+<<<<<<< HEAD
                     <div class="input invisible" id="staffNumber">
                         <input type="text" name="StaffNumber" placeholder="Staff Number" required="">
                     </div>
                     <div class="input invisible" id="jobTitle">
                         <input type="text" name="jobTitle" placeholder="Occupation" required="">
                     </div>
+=======
+                <div class="input" id="staffNumber">
+                    <input type="text" name="StaffNumber" placeholder="Staff Number" required="">
+                </div>
+                <div class="input" id="jobTitle">
+                    <input type="text" name="jobTitle" placeholder="Occupation" required="">
+                </div>
+>>>>>>> 04222554a83ab6d1650e672364c522b75c05060a
                 <!--#########################################################################-->
-                
+
                 <!-- #######################Student extra Details#############################-->
+<<<<<<< HEAD
                     <div class="input invisible" id="faculty">
                         <input type="text" name="faculty"  placeholder="Faculty" required="">
                     </div>
@@ -49,8 +62,22 @@
                     <div class="input invisible" id="level">
                         <input type="text" name="level" placeholder="Academic level" required="">
                     </div>
+=======
+                <div class="input" id="studentNumber">
+                    <input type="text" name="studentNumber"  placeholder="Student Number" required="">
+                </div>
+                <div class="input" id="faculty">
+                    <input type="text" name="faculty"  placeholder="Faculty" required="">
+                </div>
+                <div class="input" id="course">
+                    <input type="text" name="course" placeholder="Course" required="">
+                </div>
+                <div class="input" id="level">
+                    <input type="text" name="level" placeholder="Academic level" required="">
+                </div>
+>>>>>>> 04222554a83ab6d1650e672364c522b75c05060a
                 <!--#########################################################################-->
-                
+
                 <div class="input">
                     <input type="password" name="password" placeholder="Password" required="">
                 </div>
@@ -59,13 +86,13 @@
                     <input type="password" name="confirm password" placeholder="Confirm password" required="">
                 </div>
 
-                <button type="submit">sign up</button>
+                <button type="submit" value="signUp">sign up</button>
 
                 <button onclick="showSignUp()">Login</button>
             </form>
         </div>
 
-<!-- ############################################################################################# -->
+        <!-- ############################################################################################# -->
 
 
         <div class="left-side" id="left-side">
@@ -76,16 +103,16 @@
             </div>
         </div>
 
-<!-- ############################################################################################# -->
+        <!-- ############################################################################################# -->
 
 
         <div class="login-box" id="login-box">
             <div class="logo">
                 <img src="Pages/logo.png" alt="logo_image">  
             </div>
-            <form action="">
+            <form action="Login.do" method="POST">
                 <div class="input">
-                    <input type="email" name="emai" placeholder="Please enter your emai" required="">
+                    <input type="email" name="email" placeholder="Please enter your emai" required="">
                 </div>
                 <div class="input">
                     <input type="password" name="password" placeholder="Please enter your passowrd" required="">
@@ -99,7 +126,7 @@
             </form>
             <button id="create-acc" onclick="showSignUp()">Create new Account</button>
         </div>
-<!-- ############################################################################################# -->
+        <!-- ############################################################################################# -->
 
         <script src="Pages/script.js"></script>
 

@@ -25,18 +25,19 @@ public class StartAppServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
-        List<Notification> notifications = new ArrayList<>();
-        notifications = notificationFacade.findAll();
+        List<Notification> notifications = notificationFacade.findAll();
         
-        String userType = request.getParameter("options").toString();
+        String userType = request.getParameter("options");
         
-        if (userType.equalsIgnoreCase("user")) {
+        session.setAttribute("notifications", notifications);
+        
+        if (userType.equalsIgnoreCase("guest")) {
+            
+            response.sendRedirect("home_page.jsp");
+            
+        } else if (userType.equalsIgnoreCase("user")) {
+            
             response.sendRedirect("login_signup.jsp");
-            
-        } else if (userType.equalsIgnoreCase("guest")) {
-            
-            session.setAttribute("notifications", notifications);
-            request.getRequestDispatcher("HomePage.jsp").forward(request, response);
         }            
     }
 }
