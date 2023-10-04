@@ -31,22 +31,22 @@
                     </select>
                 </div>
                 <!-- #######################Staff extra details#############################-->
-                    <div class="input" id="staffNumber">
+                    <div class="input invisible" id="staffNumber">
                         <input type="text" name="StaffNumber" placeholder="Staff Number" required="">
                     </div>
-                    <div class="input" id="jobTitle">
+                    <div class="input invisible" id="jobTitle">
                         <input type="text" name="jobTitle" placeholder="Occupation" required="">
                     </div>
                 <!--#########################################################################-->
                 
                 <!-- #######################Student extra Details#############################-->
-                    <div class="input" id="faculty">
+                    <div class="input invisible" id="faculty">
                         <input type="text" name="faculty"  placeholder="Faculty" required="">
                     </div>
-                    <div class="input" id="course">
+                    <div class="input invisible" id="course">
                         <input type="text" name="course" placeholder="Course" required="">
                     </div>
-                    <div class="input" id="level">
+                    <div class="input invisible" id="level">
                         <input type="text" name="level" placeholder="Academic level" required="">
                     </div>
                 <!--#########################################################################-->

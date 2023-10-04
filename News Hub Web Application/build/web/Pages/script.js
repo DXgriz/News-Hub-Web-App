@@ -5,13 +5,13 @@ let course = document.getElementById("course");
 let faculty = document.getElementById("faculty");
 let staffNumber = document.getElementById("staffNumber");
 let jobTitle = document.getElementById("jobTitle");
-
+/*
 level.classList.add("invisible");
 course.classList.add("invisible");
 faculty.classList.add("invisible");
 staffNumber.classList.add("invisible");
 jobTitle.classList.add("invisible");
-
+*/
 
 userType.addEventListener("change",function(){
     
@@ -21,10 +21,17 @@ userType.addEventListener("change",function(){
         level.classList.remove("invisible");
         course.classList.remove("invisible");
         faculty.classList.remove("invisible");
-    }else if(userType === "staff")
+        staffNumber.classList.add("invisible");
+        jobTitle.classList.add("invisible");
+        
+    }else if(userType.value === "staff")
     {
         staffNumber.classList.remove("invisible");
         jobTitle.classList.remove("invisible");
+        
+        level.classList.add("invisible");
+        course.classList.add("invisible");
+        faculty.classList.add("invisible");
     }else
     {
         level.classList.add("invisible");
