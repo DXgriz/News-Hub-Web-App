@@ -21,16 +21,11 @@ userType.addEventListener("change",function(){
         level.classList.remove("invisible");
         course.classList.remove("invisible");
         faculty.classList.remove("invisible");
-<<<<<<< HEAD
+
         staffNumber.classList.add("invisible");
         jobTitle.classList.add("invisible");
-        
-    }else if(userType.value === "staff")
-=======
-        
-    }else if(userType === "staff")
->>>>>>> 04222554a83ab6d1650e672364c522b75c05060a
-    {
+                
+    }else if(userType === "staff")    {
         staffNumber.classList.remove("invisible");
         jobTitle.classList.remove("invisible");
         

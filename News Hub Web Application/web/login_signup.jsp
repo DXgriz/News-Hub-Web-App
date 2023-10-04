@@ -34,25 +34,18 @@
                     </select>
                 </div>
                 <!-- #######################Staff extra details#############################-->
-<<<<<<< HEAD
+
                     <div class="input invisible" id="staffNumber">
                         <input type="text" name="StaffNumber" placeholder="Staff Number" required="">
                     </div>
                     <div class="input invisible" id="jobTitle">
                         <input type="text" name="jobTitle" placeholder="Occupation" required="">
                     </div>
-=======
-                <div class="input" id="staffNumber">
-                    <input type="text" name="StaffNumber" placeholder="Staff Number" required="">
-                </div>
-                <div class="input" id="jobTitle">
-                    <input type="text" name="jobTitle" placeholder="Occupation" required="">
-                </div>
->>>>>>> 04222554a83ab6d1650e672364c522b75c05060a
+
                 <!--#########################################################################-->
 
                 <!-- #######################Student extra Details#############################-->
-<<<<<<< HEAD
+
                     <div class="input invisible" id="faculty">
                         <input type="text" name="faculty"  placeholder="Faculty" required="">
                     </div>
@@ -62,20 +55,12 @@
                     <div class="input invisible" id="level">
                         <input type="text" name="level" placeholder="Academic level" required="">
                     </div>
-=======
-                <div class="input" id="studentNumber">
+
+                <div class="input invisible" id="studentNumber">
                     <input type="text" name="studentNumber"  placeholder="Student Number" required="">
                 </div>
-                <div class="input" id="faculty">
-                    <input type="text" name="faculty"  placeholder="Faculty" required="">
-                </div>
-                <div class="input" id="course">
-                    <input type="text" name="course" placeholder="Course" required="">
-                </div>
-                <div class="input" id="level">
-                    <input type="text" name="level" placeholder="Academic level" required="">
-                </div>
->>>>>>> 04222554a83ab6d1650e672364c522b75c05060a
+                
+
                 <!--#########################################################################-->
 
                 <div class="input">
