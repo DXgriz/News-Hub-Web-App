@@ -1,0 +1,78 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.news.hub.entities;
+
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+/**
+ *
+ * @author andil
+ */
+@Entity
+public class Notification implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long notifId;
+    private String subjectLine;
+    private Long senderId;
+    private String content;   
+    private byte[] file;
+
+    public Notification() {
+    }
+    
+    
+
+    public Long getNotifId() {
+        return notifId;
+    }
+
+    public void setNotifId(Long notifId) {
+        this.notifId = notifId;
+    }
+
+    public String getSubjectLine() {
+        return subjectLine;
+    }
+
+    public void setSubjectLine(String subjectLine) {
+        this.subjectLine = subjectLine;
+    }
+
+    public Long getSenderId() {
+        return senderId;
+    }
+
+    public void setSenderId(Long senderId) {
+        this.senderId = senderId;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public byte[] getFile() {
+        return file;
+    }
+
+    public void setFile(byte[] file) {
+        this.file = file;
+    }
+    
+    
+
+    
+}

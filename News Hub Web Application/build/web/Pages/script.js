@@ -25,7 +25,7 @@ userType.addEventListener("change",function(){
         staffNumber.classList.add("invisible");
         jobTitle.classList.add("invisible");
                 
-    }else if(userType === "staff")    {
+    }else if(userType.value === "staff")    {
         staffNumber.classList.remove("invisible");
         jobTitle.classList.remove("invisible");
         

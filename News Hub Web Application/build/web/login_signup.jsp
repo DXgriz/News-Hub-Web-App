@@ -11,7 +11,7 @@
 
         <div class="signup-form">
 
-            <form action="RegisterAccount.do" method="POST">
+            <form action="hi.do" method="POST">
 
                 <div class="input">
                     <input type="text" name="firstname" placeholder="First name" required="">
@@ -36,10 +36,10 @@
                 <!-- #######################Staff extra details#############################-->
 
                     <div class="input invisible" id="staffNumber">
-                        <input type="text" name="StaffNumber" placeholder="Staff Number" required="">
+                        <input type="text" name="StaffNumber" placeholder="Staff Number" />
                     </div>
                     <div class="input invisible" id="jobTitle">
-                        <input type="text" name="jobTitle" placeholder="Occupation" required="">
+                        <input type="text" name="jobTitle" placeholder="Occupation" />
                     </div>
 
                 <!--#########################################################################-->
@@ -47,17 +47,17 @@
                 <!-- #######################Student extra Details#############################-->
 
                     <div class="input invisible" id="faculty">
-                        <input type="text" name="faculty"  placeholder="Faculty" required="">
+                        <input type="text" name="faculty"  placeholder="Faculty" />
                     </div>
                     <div class="input invisible" id="course">
-                        <input type="text" name="course" placeholder="Course" required="">
+                        <input type="text" name="course" placeholder="Course" />
                     </div>
                     <div class="input invisible" id="level">
-                        <input type="text" name="level" placeholder="Academic level" required="">
+                        <input type="text" name="level" placeholder="Academic level" />
                     </div>
 
                 <div class="input invisible" id="studentNumber">
-                    <input type="text" name="studentNumber"  placeholder="Student Number" required="">
+                    <input type="text" name="studentNumber"  placeholder="Student Number" />
                 </div>
                 
 
@@ -71,7 +71,7 @@
                     <input type="password" name="confirm password" placeholder="Confirm password" required="">
                 </div>
 
-                <button type="submit" value="signUp">sign up</button>
+                <input type="submit" value="submit"/>
 
                 <button onclick="showSignUp()">Login</button>
             </form>
