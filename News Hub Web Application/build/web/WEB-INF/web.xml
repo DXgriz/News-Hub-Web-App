@@ -20,6 +20,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.news.hub.controller.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>com.news.hub.controller.DashboardServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/DashboardServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
