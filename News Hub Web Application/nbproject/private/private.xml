@@ -5,11 +5,14 @@
         <group>
             <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/web/index.html</file>
             <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/web/login_signup.jsp</file>
-            <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/src/java/com/news/hub/web/controller/RegisterAccount.java</file>
+            <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/src/java/com/news/hub/session/AbstractFacade.java</file>
+            <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/web/display_msg.jsp</file>
             <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/web/home_page.jsp</file>
-            <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/src/java/com/news/hub/web/controller/Login.java</file>
             <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/web/Pages/script.js</file>
             <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/src/conf/persistence.xml</file>
+            <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/src/java/com/news/hub/controller/LoginServlent.java</file>
+            <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/src/java/com/news/hub/controller/RegisterServlet.java</file>
+            <file>file:/D:/Files/projects/Git%20projects/News%20Hub/News-Hub-Web-App/News%20Hub%20Web%20Application/src/java/com/news/hub/entities/Course.java</file>
         </group>
     </open-files>
 </project-private>

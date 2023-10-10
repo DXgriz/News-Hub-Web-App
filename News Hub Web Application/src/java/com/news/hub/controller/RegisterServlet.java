@@ -5,12 +5,19 @@
  */
 package com.news.hub.controller;
 
+import com.news.hub.entities.Staff;
+import com.news.hub.entities.Student;
+import com.news.hub.entities.SystemUser;
+import com.news.hub.session.CourseFacadeLocal;
+import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -18,15 +25,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class RegisterServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    @EJB
+    private SystemUserFacadeLocal systemUserFacade;
+
+    @EJB
+    private CourseFacadeLocal courseFacade;
+
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -44,43 +49,68 @@ public class RegisterServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException
+    {
+        
+        HttpSession session = request.getSession(true);
+        SystemUser user = new SystemUser();
+        
+        try{
+            String userType = request.getParameter("userType");
+            String firstname = request.getParameter("firstname");
+            String lastname = request.getParameter("lastname");
+            String identity = request.getParameter("identity");
+            String email = request.getParameter("email");
+            
+            user.setFirstName(firstname);
+            user.setLastName(lastname);
+            user.setId(Long.parseLong(identity));
+            user.setEmailAddress(email);
+            if(userType.equalsIgnoreCase("staff"))
+            {
+                String occupation = request.getParameter("occupation");
+                
+                Staff staff = new Staff();
+                staff.setFirstName(firstname);
+                staff.setLastName(lastname);
+                staff.setId(Long.parseLong(identity));
+                staff.setEmailAddress(email);
+                staff.setStaffNumber( Long.parseLong(request.getParameter("staffNumber")));
+                staff.setOccupation(occupation);
+                
+                systemUserFacade.create(staff);
+                
+                
+            }else if(userType.equalsIgnoreCase("student"))
+            {
+                Student student = new Student();
+                student.setFirstName(firstname);
+                student.setLastName(lastname);
+                student.setId(Long.parseLong(identity));
+                student.setEmailAddress(email);
+                student.setStudentNumber(Long.parseLong(request.getParameter("studentNumber")));
+                student.setCourse(courseFacade.find(request.getParameter("course")));
+               systemUserFacade.create(student);
+            }
+        }catch(NullPointerException e)
+        {
+            
+        }
+        
+         
+         //session.setAttribute("user", user);
+               
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+ 
 }

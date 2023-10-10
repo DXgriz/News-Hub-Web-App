@@ -27,8 +27,8 @@
                 </div>
                 <!-- ############################################################################################# -->
                 <div class="input">
-                    <select id="userType" name="userType" onselect="onOptionSelect()">
-                        <option value="0">--Select type--</option>
+                    <select id="userType" name="userType" onselect="onOptionSelect()" required="">
+                        <option >--Select type--</option>
                         <option value="student">Student</option>
                         <option value="staff">Staff</option>
                     </select>
@@ -36,10 +36,10 @@
                 <!-- #######################Staff extra details#############################-->
 
                     <div class="input invisible" id="staffNumber">
-                        <input type="text" name="StaffNumber" placeholder="Staff Number" />
+                        <input type="text" name="staffNumber" placeholder="Staff Number" />
                     </div>
                     <div class="input invisible" id="jobTitle">
-                        <input type="text" name="jobTitle" placeholder="Occupation" />
+                        <input type="text" name="occupation" placeholder="Occupation" />
                     </div>
 
                 <!--#########################################################################-->
@@ -47,7 +47,7 @@
                 <!-- #######################Student extra Details#############################-->
 
                     <div class="input invisible" id="faculty">
-                        <input type="text" name="faculty"  placeholder="Faculty" />
+                        <input type="text" name="studentNumber"  placeholder="Student Number" />
                     </div>
                     <div class="input invisible" id="course">
                         <input type="text" name="course" placeholder="Course" />
@@ -56,9 +56,7 @@
                         <input type="text" name="level" placeholder="Academic level" />
                     </div>
 
-                <div class="input invisible" id="studentNumber">
-                    <input type="text" name="studentNumber"  placeholder="Student Number" />
-                </div>
+               
                 
 
                 <!--#########################################################################-->
