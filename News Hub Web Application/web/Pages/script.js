@@ -5,13 +5,32 @@ let course = document.getElementById("course");
 let faculty = document.getElementById("faculty");
 let staffNumber = document.getElementById("staffNumber");
 let jobTitle = document.getElementById("jobTitle");
-/*
-level.classList.add("invisible");
-course.classList.add("invisible");
-faculty.classList.add("invisible");
-staffNumber.classList.add("invisible");
-jobTitle.classList.add("invisible");
-*/
+let userpassword = document.getElementById("userpassword");
+let passconfirmation = document.getElementById("passconfirmation");
+let createAccBtn = document.getElementById("createAccBtn");
+
+
+passconfirmation.addEventListener("input",() => {
+    
+  if( passconfirmation.value.length <= userpassword.value.length && passconfirmation.value != userpassword.value)
+    {
+        //Make button unclickable
+        createAccBtn.disabled = true;
+
+        if( passconfirmation.value.length === userpassword.value.length)
+        {
+            alert("Incorrect password");
+        }
+
+    }else
+    {
+        //Re activate button
+        createAccBtn.disabled = false;
+    }
+
+});
+
+
 
 userType.addEventListener("change",function(){
     

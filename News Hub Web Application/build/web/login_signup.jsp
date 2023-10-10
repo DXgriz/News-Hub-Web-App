@@ -62,14 +62,14 @@
                 <!--#########################################################################-->
 
                 <div class="input">
-                    <input type="password" name="password" placeholder="Password" required="">
+                    <input type="password" name="password" placeholder="Password" required="" id="userpassword">
                 </div>
 
                 <div class="input">
-                    <input type="password" name="confirm password" placeholder="Confirm password" required="">
+                    <input type="password" name="confirm password" placeholder="Confirm password" required="" id="passconfirmation">
                 </div>
 
-                <input type="submit" value="submit"/>
+                <button type="submit" id="createAccBtn">submit</button>
 
                 <button onclick="showSignUp()">Login</button>
             </form>
