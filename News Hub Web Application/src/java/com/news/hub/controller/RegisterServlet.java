@@ -72,11 +72,13 @@ public class RegisterServlet extends HttpServlet {
             String lastname = request.getParameter("lastname");
             String identity = request.getParameter("identity");
             String email = request.getParameter("email");
+            String password = request.getParameter("password");
             
             user.setFirstName(firstname);
             user.setLastName(lastname);
             user.setId(Long.parseLong(identity));
             user.setEmailAddress(email);
+            user.setPassword(password);
             if(userType.equalsIgnoreCase("staff"))
             {
                 String occupation = request.getParameter("occupation");
@@ -86,6 +88,7 @@ public class RegisterServlet extends HttpServlet {
                 staff.setLastName(lastname);
                 staff.setId(Long.parseLong(identity));
                 staff.setEmailAddress(email);
+                staff.setPassword(password);
                 staff.setStaffNumber( Long.parseLong(request.getParameter("staffNumber")));
                 staff.setOccupation(occupation);
                 
@@ -99,6 +102,7 @@ public class RegisterServlet extends HttpServlet {
                 student.setLastName(lastname);
                 student.setId(Long.parseLong(identity));
                 student.setEmailAddress(email);
+                student.setPassword(password);
                 student.setStudentNumber(Long.parseLong(request.getParameter("studentNumber")));
                 student.setCourse(courseFacade.find(request.getParameter("course")));
                systemUserFacade.create(student);
@@ -107,8 +111,7 @@ public class RegisterServlet extends HttpServlet {
         {
             
         }
-        
-         
+
          //session.setAttribute("user", user);
                
     }
