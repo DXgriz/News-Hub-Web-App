@@ -11,7 +11,7 @@
 
         <div class="signup-form">
 
-            <form action="hi.do" method="POST">
+            <form action="RegisterServlet.do" method="POST">
 
                 <div class="input">
                     <input type="text" name="firstname" placeholder="First name" required="">
@@ -95,7 +95,7 @@
             <div class="logo">
                 <img src="Pages/logo.png" alt="logo_image">  
             </div>
-            <form action="Login.do" method="POST">
+            <form action="LoginServlent.do" method="POST">
                 <div class="input">
                     <input type="email" name="email" placeholder="Please enter your emai" required="">
                 </div>

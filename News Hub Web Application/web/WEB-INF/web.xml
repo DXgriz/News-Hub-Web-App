@@ -12,6 +12,14 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>com.news.hub.web.controller.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlent</servlet-name>
+        <servlet-class>com.news.hub.controller.LoginServlent</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>com.news.hub.controller.RegisterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
@@ -23,6 +31,14 @@
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlent</servlet-name>
+        <url-pattern>/LoginServlent.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
