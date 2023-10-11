@@ -1,32 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <title>News Hub</title>
+        <title>New Hub Welcome</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="Pages/welcome_page.css" type="text/css"/>
+
+        <style>
+
+            .topnav {
+                background-color:darkslategrey;
+                overflow: hidden;
+            }
+
+            .topnav a {
+                float: right;
+                color: bisque;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+            .topnav a:hover {
+                background-color: cornflowerblue;
+                color: coral;
+            }
+
+            .topnav a.active {
+                background-color:peru;
+                color: black;
+            }
+
+            body, html {
+                height: 100%;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .background-image {
+
+                background-image: url("Pages/logo.png");
+                filter: blur(8px);
+                -webkit-filter: blur(8px);
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .bg-text {
+                background-color: rgb(0,0,0);
+                background-color: rgba(0,0,0, 0.4);
+                color: white;
+                font-weight: bold;
+                border: 3px solid #f1f1f1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                width: 80%;
+                padding: 20px;
+                text-align: center;
+            }
+        </style>
     </head>
+
+
+
     <body>
 
-        <div class="welcome_msg" id="welcome_msg">
-            <p>
-                Stay Up-To-Date With Your Campus!
-            </p>
+        <div class="topnav">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+            <a href="login_signup.jsp">Sign Up</a>
+            <a href="login_signup.jsp">Sign In</a>
         </div>
-        <!-- ############################################################################################# -->
+        <div class="background-image"></div>
 
-
-        <div class="form_control">
-            <form action="StartAppServlet.do" method="GET">
-
-                <select name="options">
-                    <option value="0">--select--</option>
-                    <option value="guest">Guest</option>
-                    <option value="user">Login Or Sign Up</option>
-                </select> 
-
-                <button type="submit" value="continue">Continue</button>
-            </form>
+        <div class="bg-text">
+            <h1>UNIZULU NEWS HUB</h1>
+            <p>Stay up-to-date with your Campus</p>
         </div>
-</body>
+
+    </body>
 </html>
