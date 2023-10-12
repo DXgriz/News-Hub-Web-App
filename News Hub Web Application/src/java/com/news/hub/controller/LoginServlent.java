@@ -61,9 +61,12 @@ public class LoginServlent extends HttpServlet {
         try{
             
             SystemUser user = findMathichingUser(email, password);
-            if(user != null)
+            if(verifyUserPassword(user, password))
             {
                 request.getRequestDispatcher("studentDashboard.jsp").forward(request, response);
+            }else
+            {
+               request.getRequestDispatcher("login_signup.jsp").forward(request, response);
             }
             
             
@@ -86,7 +89,7 @@ public class LoginServlent extends HttpServlet {
         SystemUser matchingUser = new SystemUser();
         for(SystemUser user : systemUserFacade.findAll())
         {
-            if(user.getEmailAddress().equalsIgnoreCase(email) && user.getPassword().equals(password))
+            if(user.getEmailAddress().equalsIgnoreCase(email))
             {
                 matchingUser = user;
                 break;
@@ -95,9 +98,15 @@ public class LoginServlent extends HttpServlet {
         
         return matchingUser;
     }
-    private boolean verifyUserPassword(System user,String password)
+    private boolean verifyUserPassword(SystemUser user,String password)
     {
-      
+      if(user.getPassword().equals(password))
+      {
+          return true;
+      }else
+      {
+          return false;
+      }
     
     }
 
