@@ -61,6 +61,13 @@ public class LoginServlent extends HttpServlet {
         try{
             
             SystemUser user = findMathichingUser(email, password);
+            if(user != null)
+            {
+                request.getRequestDispatcher("studentDashboard.jsp").forward(request, response);
+            }
+            
+            
+            
             session.setAttribute("user", user);
             System.out.println("Login success");
         
@@ -87,6 +94,11 @@ public class LoginServlent extends HttpServlet {
         }
         
         return matchingUser;
+    }
+    private boolean verifyUserPassword(System user,String password)
+    {
+      
+    
     }
 
 }
