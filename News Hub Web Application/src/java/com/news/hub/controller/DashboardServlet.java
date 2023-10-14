@@ -5,11 +5,17 @@
  */
 package com.news.hub.controller;
 
+import com.news.hub.entities.Notification;
 import com.news.hub.entities.Staff;
 import com.news.hub.entities.Student;
 import com.news.hub.entities.SystemUser;
+import com.news.hub.session.EmailFacadeLocal;
+import com.news.hub.session.NotificationFacadeLocal;
+import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +27,16 @@ import javax.servlet.http.HttpSession;
  * @author andil
  */
 public class DashboardServlet extends HttpServlet {
+
+    @EJB
+    private NotificationFacadeLocal notificationFacade;
+
+    @EJB
+    private SystemUserFacadeLocal systemUserFacade;
+    
+
+    @EJB
+    private EmailFacadeLocal emailFacade;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,6 +69,14 @@ public class DashboardServlet extends HttpServlet {
         else if(user instanceof Student)
         {
             //TODO: Get all information realated to student and redirect to Student dashbboard
+            
+            List<Notification> studentNotifications = getStudentNotofications(notificationFacade.findAll(), ((Student)user).getStudyLevel());
+            session.setAttribute("studentNotifications", studentNotifications);
+            
+            
+            
+            response.sendRedirect("studentDashboard.jsp");
+            
         }
         
         
@@ -62,6 +86,20 @@ public class DashboardServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+    }
+    private List<Notification> getStudentNotofications(List<Notification>notifications,int level)
+    {
+        notifications = notificationFacade.findAll();
+        
+        for(Notification notif : notifications)
+        {
+            if(notif.getTargetLevel() != level)
+            {
+                notifications.remove(notif);
+            }
+        }
+        
+        return notifications;
     }
 
 

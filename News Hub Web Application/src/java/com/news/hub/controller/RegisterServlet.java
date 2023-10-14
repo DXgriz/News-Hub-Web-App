@@ -92,6 +92,8 @@ public class RegisterServlet extends HttpServlet {
                 staff.setStaffNumber( Long.parseLong(request.getParameter("staffNumber")));
                 staff.setOccupation(occupation);
                 
+                //user = staff;
+                session.setAttribute("user", staff);
                 systemUserFacade.create(staff);
                 
                 
@@ -105,8 +107,20 @@ public class RegisterServlet extends HttpServlet {
                 student.setPassword(password);
                 student.setStudentNumber(Long.parseLong(request.getParameter("studentNumber")));
                 student.setCourse(courseFacade.find(request.getParameter("course")));
+                
+                session.setAttribute("user", student);
+                
+               // user = student;
                systemUserFacade.create(student);
+               
             }
+            
+            
+            
+            //session.setAttribute("user", user);
+            response.sendRedirect("DashboardServlet.do");
+            //request.getRequestDispatcher("DashboardServlet.do").forward(request, response);
+            //response.sendRedirect("DashboardServlet.do");
         }catch(NullPointerException e)
         {
             

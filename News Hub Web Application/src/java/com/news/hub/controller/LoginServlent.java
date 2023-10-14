@@ -63,7 +63,8 @@ public class LoginServlent extends HttpServlet {
             SystemUser user = findMathichingUser(email, password);
             if(verifyUserPassword(user, password))
             {
-                request.getRequestDispatcher("studentDashboard.jsp").forward(request, response);
+                //request.getRequestDispatcher("DashboardServlet.do").forward(request, response);
+                response.sendRedirect("DashboardServlet.do");
             }else
             {
                request.getRequestDispatcher("login_signup.jsp").forward(request, response);

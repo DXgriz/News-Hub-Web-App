@@ -4,6 +4,8 @@
     Author     : andil
 --%>
 
+<%@page import="com.news.hub.entities.Notification"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -73,15 +75,19 @@
             START : BODY-CONT
         -->
         <div class="body-cont">
-            <form action="">
+            <form action="NotificationServlet.do" method="POST">
                 
                 <%
                     //Use for each loop
-                    for(int i = 0; i < 10;i++){
+                    
+                    List<Notification>studentNotifications = (List<Notification>)session.getAttribute("studentNotifications");
+                    
+                    
+                    for(Notification notif : studentNotifications){
                 %>
-                <button type="submit" value="" class="notification-summary">
+                <button type="submit" name="notificationId" value="<%=notif.getNotifId()%>" class="notification-summary">
                       <img src="Pages/graduation.png" alt="" >  
-                      <h1> Notification subject line Notification subject line</h1>    
+                      <h1> <%=notif.getSubjectLine()%></h1>    
                        <div class="notification-date">
                             23 / 02 / 2023
                        </div>        
