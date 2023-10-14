@@ -25,10 +25,11 @@ public class Email implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long emailId;
+    private String subjectLine;
+    
     
     private SystemUser sender;
     @OneToMany
-    
     @JoinTable(name = "email_recipients")
     private List<SystemUser> recipient;
     
@@ -47,6 +48,14 @@ public class Email implements Serializable {
         this.emailId = emailId;
     }
 
+    public String getSubjectLine() {
+        return subjectLine;
+    }
+
+    public void setSubjectLine(String subjectLine) {
+        this.subjectLine = subjectLine;
+    }
+    
     public SystemUser getSender() {
         return sender;
     }

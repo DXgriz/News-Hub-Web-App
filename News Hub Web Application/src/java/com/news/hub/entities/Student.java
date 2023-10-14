@@ -6,10 +6,8 @@
 package com.news.hub.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 /**
@@ -26,9 +24,6 @@ public class Student extends SystemUser implements Serializable
     @JoinTable(name="userCourse")
     private Course course;
     
-    @OneToMany
-    @JoinTable(name="userNotifications")
-    private List<Notification> notifications;
 
     public Student() {
     }
@@ -56,17 +51,5 @@ public class Student extends SystemUser implements Serializable
     public void setCourse(Course course) {
         this.course = course;
     }
-
-    public List<Notification> getNotifications() {
-        return notifications;
-    }
-
-    public void setNotifications(List<Notification> notifications) {
-        this.notifications = notifications;
-    }
-    
-    
-    
-    
 
 }

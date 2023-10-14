@@ -6,7 +6,10 @@
 package com.news.hub.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -18,7 +21,10 @@ public class Staff extends SystemUser implements Serializable
     private String occupation;
     private Long staffNumber;
     private String faculty;
-
+   
+    @OneToMany
+    @JoinTable(name="userNotifications")
+    private List<Notification> notifications;
     public Staff() {
     }
 
@@ -45,6 +51,14 @@ public class Staff extends SystemUser implements Serializable
 
     public void setFaculty(String faculty) {
         this.faculty = faculty;
+    }
+
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
     }
    
 }
