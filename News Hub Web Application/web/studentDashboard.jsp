@@ -28,7 +28,7 @@
                 </a>
             </div>
             <div class="nav-container">
-                <a href="">
+                <a href="studentDetails.jsp">
                     <i class="fa-solid fa-user"></i> Account
                 </a>
             </div>

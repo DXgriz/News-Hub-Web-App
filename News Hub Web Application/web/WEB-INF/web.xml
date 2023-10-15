@@ -28,6 +28,10 @@
         <servlet-name>NotificationServlet</servlet-name>
         <servlet-class>com.news.hub.controller.NotificationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditStudentDetails</servlet-name>
+        <servlet-class>com.news.hub.controller.EditStudentDetails</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>NotificationServlet</servlet-name>
         <url-pattern>/NotificationServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditStudentDetails</servlet-name>
+        <url-pattern>/EditStudentDetails.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
