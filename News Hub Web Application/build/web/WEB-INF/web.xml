@@ -40,6 +40,10 @@
         <servlet-name>SendEmail</servlet-name>
         <servlet-class>com.news.hub.controller.SendEmail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SupportServlet</servlet-name>
+        <servlet-class>com.news.hub.controller.SupportServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>SendEmail</servlet-name>
         <url-pattern>/SendEmail.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SupportServlet</servlet-name>
+        <url-pattern>/SupportServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

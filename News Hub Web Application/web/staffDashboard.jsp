@@ -55,6 +55,11 @@
                     <i class="fa-solid fa-envelope"></i> Emails
                 </a>
             </div>
+            <div class="nav-container">
+                <a href="support.jsp">
+                    <i class="glyphicon glyphicon-care"></i> Support
+                </a>
+            </div>
 
             <div class="nav-container logout">
                 <a href="LogoutServlet.do">

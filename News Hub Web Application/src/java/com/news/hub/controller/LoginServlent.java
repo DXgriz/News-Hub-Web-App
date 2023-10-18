@@ -60,7 +60,7 @@ public class LoginServlent extends HttpServlet {
         String password = request.getParameter("password");
         try{
             
-            SystemUser user = findMathichingUser(email, password);
+            SystemUser user = findMathichingUser(email);
             if(verifyUserPassword(user, password))
             {
                 //request.getRequestDispatcher("DashboardServlet.do").forward(request, response);
@@ -70,8 +70,6 @@ public class LoginServlent extends HttpServlet {
                request.getRequestDispatcher("login_signup.jsp").forward(request, response);
             }
             
-            
-            
             session.setAttribute("user", user);
             System.out.println("Login success");
         
@@ -80,12 +78,9 @@ public class LoginServlent extends HttpServlet {
             System.out.println("User not found ");
             // direct to loginPage
         }
-        
-        
-        
-        
+    
     }
-    private SystemUser findMathichingUser(String email, String password)
+    private SystemUser findMathichingUser(String email)
     {
         SystemUser matchingUser = new SystemUser();
         for(SystemUser user : systemUserFacade.findAll())
@@ -101,14 +96,6 @@ public class LoginServlent extends HttpServlet {
     }
     private boolean verifyUserPassword(SystemUser user,String password)
     {
-      if(user.getPassword().equals(password))
-      {
-          return true;
-      }else
-      {
-          return false;
-      }
-    
+        return user.getPassword().equals(password);
     }
-
 }

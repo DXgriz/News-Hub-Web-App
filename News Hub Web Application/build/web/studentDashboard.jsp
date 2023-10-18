@@ -12,13 +12,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>dashboard</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+              integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+              crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="Pages/learneDahboard.css">
     </head>
     <body>
     <div class="background"></div>
+    
     <div class="container">
+        
         <div class="left-nav">
+            
             <div class="logo-cont">
                 <img src="Pages/logo.png" alt="">
             </div>
@@ -42,14 +48,18 @@
                     <i class="fa-solid fa-envelope"></i> Email
                 </a>
             </div>
+            
+            <div class="nav-container">
+                <a href="support.jsp">
+                    <i class="glyphicon glyphicon-care"></i> Support
+                </a>
+            </div>
 
             <div class="nav-container logout">
                 <a href="LogoutServlet.do">
                     <i class="fa-solid fa-door-open"></i>logout
                 </a>
-            </div>
-            
-            
+            </div> 
         </div>
 
         <!--

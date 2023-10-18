@@ -3,35 +3,68 @@
     Author     : DXgriz
 */
 
-.header {
-    display: flex;
-    height: fit-content;
-    width: border-box;
-    background-color: #4d6edb;
+/*
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+              integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+              crossorigin="anonymous" referrerpolicy="no-referrer');
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 
-}
+*/
 
-.logo img
-{
-    height: 10%;
-    width: 10%;
-    position: absolute;
-    left: 0%;
-    border-radius: 100%;
-    display: flex;
-}
 
-.nav-list{
-    display: flex;
-    position: absolute;
-    align-items: flex-end;
-    padding-left: 65%;
-    list-style: none;
-}
-
-.body_content{
+.topnav {
+    overflow: hidden;
     position: relative;
-    display: inline-block;
-    box-sizing: content-box;
-    text-decoration: antiquewhite;
+    float: right;
+}
+
+.topnav a {
+    float: right;
+    color:#1b4ffa;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: cornflowerblue;
+    color: coral;
+}
+
+.topnav a.active {
+    background-color:peru;
+    color: black;
+}
+
+body, html {
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+.form-control{
+    position: absolute;
+    width: 75%;
+    height: 90%;
+    left: 10%;
+    top: 5%;
+    background-color: inherit;
+}
+.input{
+    height: 5%;
+    margin-top: 10%;
+}
+
+
+.input-query{
+    margin: auto;
+    width: 90%;
+    padding: 25px;
+    height: 45%;
+}
+button{
+    height: 5%;
+    width: 10%;
 }
