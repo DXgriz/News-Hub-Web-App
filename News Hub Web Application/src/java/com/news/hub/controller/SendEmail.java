@@ -5,19 +5,24 @@ import com.news.hub.entities.SystemUser;
 import com.news.hub.session.EmailFacadeLocal;
 import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author vuyan
  */
+@MultipartConfig
 public class SendEmail extends HttpServlet {
     
     @EJB
@@ -36,16 +41,27 @@ public class SendEmail extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        
         SystemUser user = (SystemUser) session.getAttribute("user");
-        
         List<SystemUser> reciever = findReceipient(request.getParameter("recipients"));
+        
+        Part part = request.getPart("attachment");
+        InputStream inputStream = part.getInputStream();
+        
+        byte[] fileBytes = new byte[inputStream.available()];
+        inputStream.read(fileBytes);
+        
+
+        
         String subjectLine = request.getParameter("subject");
         String body = request.getParameter("content");
         
-        Email email = setEmailContents(subjectLine, user, reciever, body);
+        byte[] bodyBytes = body.getBytes();
+        Email email = setEmailContents(subjectLine, user, reciever, bodyBytes,fileBytes);
+        
+        
+        
         emailFacade.create(email);
-        System.out.println("Email sent successfully to: " + reciever.size() +" users." + reciever.get(0).getEmailAddress() );
+        System.out.println( new String(bodyBytes,StandardCharsets.UTF_8));
         response.sendRedirect("emailViewPage.jsp");
 
         /*
@@ -78,12 +94,13 @@ public class SendEmail extends HttpServlet {
         return receipients;
     }
     
-    private Email setEmailContents(String subjectLine, SystemUser sender, List<SystemUser> recipient, String content) {
+    private Email setEmailContents(String subjectLine, SystemUser sender, List<SystemUser> recipient, byte[] content,byte[] fileBytes) {
         Email email = new Email();
         email.setSender(sender);
         email.setRecipient(recipient);
         email.setSubjectLine(subjectLine);
         email.setContent(content);
+        email.setFileAttachment(fileBytes);
         
         return email;
     }

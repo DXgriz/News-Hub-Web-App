@@ -19,7 +19,6 @@
 
         <link rel="stylesheet" href="Pages/emailView.css">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
 
@@ -190,10 +189,10 @@
 
                 <div class="compose-email" id="compose">
                     
-                    <form action="SendEmail.do" method="POST">
+                    <form action="SendEmail.do" method="POST" enctype="multipart/form-data">
 
                         <div class="reciever">
-
+                            <p>To: </p>
                             <select id="reciever" name="recipients" required="" >
                                 <%  for (SystemUser recepient : allUsers) {
                                 %>
@@ -202,6 +201,7 @@
                                     }
                                 %>
                             </select>
+                            <button class="cancel-btn" id="composeBtn"><b>X</b></button>
                         </div>
 
                         <div class="subject">
@@ -214,12 +214,12 @@
                         </div>
 
                         <div class="attachment">
-                            <input type="file" name="attachments" 
+                            <input type="file" name="attachment" 
                                    accept="image/png,image/jpeg,image/jpg,document/doc,document/pdf" 
                                    multiple="multiple">
                         </div>
 
-                        <div class="btn">
+                        <div class="submit-btn">
                             <input type="submit" value="Send Email">
                         </div>
                     </form>
