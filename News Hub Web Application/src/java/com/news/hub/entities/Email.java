@@ -25,8 +25,8 @@ public class Email implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long emailId;
+
     private String subjectLine;
-    
     
     private SystemUser sender;
     @OneToMany

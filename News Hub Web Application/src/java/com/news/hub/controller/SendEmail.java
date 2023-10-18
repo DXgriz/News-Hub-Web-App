@@ -1,86 +1,90 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.news.hub.controller;
 
+import com.news.hub.entities.Email;
+import com.news.hub.entities.SystemUser;
+import com.news.hub.session.EmailFacadeLocal;
+import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author andil
+ * @author vuyan
  */
 public class SendEmail extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet SendEmail</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet SendEmail at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
+    @EJB
+    private SystemUserFacadeLocal systemUserFacade;
+    
+    @EJB
+    private EmailFacadeLocal emailFacade;
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        HttpSession session = request.getSession();
+        
+        SystemUser user = (SystemUser) session.getAttribute("user");
+        
+        List<SystemUser> reciever = findReceipient(request.getParameter("recipients"));
+        String subjectLine = request.getParameter("subject");
+        String body = request.getParameter("content");
+        
+        Email email = setEmailContents(subjectLine, user, reciever, body);
+        emailFacade.create(email);
+        System.out.println("Email sent successfully to: " + reciever.size() +" users." + reciever.get(0).getEmailAddress() );
+        response.sendRedirect("emailViewPage.jsp");
+
+        /*
+        List<SystemUser> recipients = new ArrayList<>();
+
+        String data[] = request.getParameterValues("receipients");
+
+        for (int i = 0; i < data.length; i++) {
+            String email = data[i];
+            recipients = findReceipients(email);
+        }
+
+        String subjectLine = request.getParameter("subjectLine");
+        String content = request.getParameter("emailBody");
+        byte[] fileAttachment;
+
+        System.out.println("email sent to: " + recipients);
+         */
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
+    private List<SystemUser> findReceipient(String email) {
+        
+        List<SystemUser> receipients = new ArrayList<>();
+        
+        for (SystemUser matchingUser : systemUserFacade.findAll()) {
+            if (matchingUser.getEmailAddress().equalsIgnoreCase(email)) {
+                receipients.add(matchingUser);
+            }
+        }
+        return receipients;
+    }
+    
+    private Email setEmailContents(String subjectLine, SystemUser sender, List<SystemUser> recipient, String content) {
+        Email email = new Email();
+        email.setSender(sender);
+        email.setRecipient(recipient);
+        email.setSubjectLine(subjectLine);
+        email.setContent(content);
+        
+        return email;
+    }
 }

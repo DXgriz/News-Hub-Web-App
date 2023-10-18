@@ -96,7 +96,7 @@ ul li button:hover
     display: flex;
     align-items: center;
 }
-.reciever p 
+.reciever p
 {
     width: 5%;
     height: 100%;
@@ -141,18 +141,22 @@ ul li button:hover
 textarea
 {
     position: absolute;
-    height: 80%;
-    width: 100%;
+    height: 50%;
+    width: 99%;
     top: 10%;
+    left: 0;
+}
+.btn{
+    position:relative;
+    top: 61%;
+    float: right;
+}
+.attachment{
+    position:relative;
+    top: 61%;
+    float: left;
     
 }
-
-
-
-
-
-
-
 
 
 

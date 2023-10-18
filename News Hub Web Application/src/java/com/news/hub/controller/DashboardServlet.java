@@ -5,15 +5,18 @@
  */
 package com.news.hub.controller;
 
+import com.news.hub.entities.Email;
 import com.news.hub.entities.Notification;
 import com.news.hub.entities.Staff;
 import com.news.hub.entities.Student;
 import com.news.hub.entities.SystemUser;
 import com.news.hub.session.EmailFacadeLocal;
 import com.news.hub.session.NotificationFacadeLocal;
+import com.news.hub.session.StaffFacadeLocal;
 import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -29,11 +32,13 @@ import javax.servlet.http.HttpSession;
 public class DashboardServlet extends HttpServlet {
 
     @EJB
+    private StaffFacadeLocal staffFacade;
+
+    @EJB
     private NotificationFacadeLocal notificationFacade;
 
     @EJB
     private SystemUserFacadeLocal systemUserFacade;
-    
 
     @EJB
     private EmailFacadeLocal emailFacade;
@@ -46,7 +51,7 @@ public class DashboardServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DashboardServlet</title>");            
+            out.println("<title>Servlet DashboardServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet DashboardServlet at " + request.getContextPath() + "</h1>");
@@ -57,29 +62,60 @@ public class DashboardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
-    {
+            throws ServletException, IOException {
         HttpSession session = request.getSession();
-        SystemUser user = (SystemUser)session.getAttribute("user");
-        
-        if(user instanceof Staff)
-        {
-            //TODO: Get all information realated to staff and redirect to Staff dashbboard 
-        }
-        else if(user instanceof Student)
-        {
+        SystemUser user = (SystemUser) session.getAttribute("user");
+
+        List<Email> emails = emailFacade.findAll();
+        List<Email> loggedUserInbox = new ArrayList<>();
+        List<Email> loggedUserSentEmails = new ArrayList<>();
+
+        List<SystemUser> allUsers = systemUserFacade.findAll();
+        session.setAttribute("allUsers", allUsers);
+
+        if (user instanceof Staff) {
+            //TODO: Get all information realated to staff and redirect to Staff dashbboard
+            List<Notification> notificationsByUser = ((Staff) user).getNotifications();
+            session.setAttribute("notificationsByUser", notificationsByUser);
+
+            //populating user inbox 
+            for (Email email : emails) {
+                if (email.getRecipient().contains(user)) {
+
+                    loggedUserInbox.add(email);
+                    session.setAttribute("userInboxEmails", loggedUserInbox);
+                }
+                if (email.getSender().equals(user)) {
+
+                    loggedUserSentEmails.add(email);
+                    session.setAttribute("userSentEmails", loggedUserSentEmails);
+                }
+            }
+            response.sendRedirect("staffDashboard.jsp");
+        } else if (user instanceof Student) {
             //TODO: Get all information realated to student and redirect to Student dashbboard
-            
-            List<Notification> studentNotifications = getStudentNotofications(notificationFacade.findAll(), ((Student)user).getStudyLevel());
+
+            //populating user inbox 
+            for (Email email : emails) {
+                if (email.getRecipient().contains(user)) {
+
+                    loggedUserInbox.add(email);
+                    session.setAttribute("userInboxEmails", loggedUserInbox);
+                }
+                if (email.getSender().equals(user)) {
+
+                    loggedUserSentEmails.add(email);
+                    session.setAttribute("userSentEmails", loggedUserSentEmails);
+                }
+            }
+
+            //getting student notifications
+            List<Notification> studentNotifications = getStudentNotofications(
+                    notificationFacade.findAll(), ((Student) user).getStudyLevel());
             session.setAttribute("studentNotifications", studentNotifications);
-            
-            
-            
+
             response.sendRedirect("studentDashboard.jsp");
-            
         }
-        
-        
     }
 
     @Override
@@ -87,20 +123,16 @@ public class DashboardServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    private List<Notification> getStudentNotofications(List<Notification>notifications,int level)
-    {
+
+    private List<Notification> getStudentNotofications(List<Notification> notifications, int level) {
         notifications = notificationFacade.findAll();
-        
-        for(Notification notif : notifications)
-        {
-            if(notif.getTargetLevel() != level)
-            {
+
+        for (Notification notif : notifications) {
+            if (notif.getTargetLevel() != level) {
                 notifications.remove(notif);
             }
         }
-        
+
         return notifications;
     }
-
-
 }

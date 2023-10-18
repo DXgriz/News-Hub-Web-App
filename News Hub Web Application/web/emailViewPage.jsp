@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="java.util.List"%>
+<%@page import="com.news.hub.entities.SystemUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,9 +16,19 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
               integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
               crossorigin="anonymous" referrerpolicy="no-referrer" />
+
         <link rel="stylesheet" href="Pages/emailView.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     </head>
     <body>
+
+        <%
+            SystemUser user = (SystemUser) session.getAttribute("user");
+            List<SystemUser> allUsers = (List<SystemUser>) session.getAttribute("allUsers");
+
+        %>
+
         <div class="background"></div>
 
         <!-- 
@@ -88,7 +100,7 @@
             <div class="top-nav" id="topNav">
 
                 <button id="composeBtn" ><i class="fa-solid fa-pen"></i><b>compose</b></button>
-                
+
                 <a href="staffDashboard.jsp"><i class="fa-solid fa-house" ></i></a>
 
                 <form action="">
@@ -109,10 +121,10 @@
                                 <div class="sender-name">
                                     <p>firtname lastname</p>
                                 </div>
-                           
-                              <div class="subject-line">
-                                 eMAIL subject line
-                              </div>
+
+                                <div class="subject-line">
+                                    eMAIL subject line
+                                </div>
                             </button>
                         </li>
                         <li class=".email-summary">
@@ -120,10 +132,10 @@
                                 <div class="sender-name">
                                     <p>firtname lastname</p>
                                 </div>
-                           
-                              <div class="subject-line">
-                                 eMAIL subject line
-                              </div>
+
+                                <div class="subject-line">
+                                    eMAIL subject line
+                                </div>
                             </button>
                         </li>
                         <li class=".email-summary">
@@ -131,10 +143,10 @@
                                 <div class="sender-name">
                                     <p>firtname lastname</p>
                                 </div>
-                           
-                              <div class="subject-line">
-                                 eMAIL subject line
-                              </div>
+
+                                <div class="subject-line">
+                                    eMAIL subject line
+                                </div>
                             </button>
                         </li>
                         <li class=".email-summary">
@@ -142,10 +154,10 @@
                                 <div class="sender-name">
                                     <p>firtname lastname</p>
                                 </div>
-                           
-                              <div class="subject-line">
-                                 eMAIL subject line
-                              </div>
+
+                                <div class="subject-line">
+                                    eMAIL subject line
+                                </div>
                             </button>
                         </li>
                         <li class=".email-summary">
@@ -153,10 +165,10 @@
                                 <div class="sender-name">
                                     <p>firtname lastname</p>
                                 </div>
-                           
-                              <div class="subject-line">
-                                 eMAIL subject line
-                              </div>
+
+                                <div class="subject-line">
+                                    eMAIL subject line
+                                </div>
                             </button>
                         </li>
                         <li class=".email-summary">
@@ -164,10 +176,10 @@
                                 <div class="sender-name">
                                     <p>firtname lastname</p>
                                 </div>
-                           
-                              <div class="subject-line">
-                                 eMAIL subject line
-                              </div>
+
+                                <div class="subject-line">
+                                    eMAIL subject line
+                                </div>
                             </button>
                         </li>
 
@@ -177,16 +189,39 @@
 
 
                 <div class="compose-email" id="compose">
-                    <form action="">
+                    
+                    <form action="SendEmail.do" method="POST">
+
                         <div class="reciever">
-                            <p>To:</p>
-                            <input type="email" name="reciever" placeholder="Email" required>
+
+                            <select id="reciever" name="recipients" required="" >
+                                <%  for (SystemUser recepient : allUsers) {
+                                %>
+                                <option name="receipients" ><%=recepient.getEmailAddress()%></option>
+                                <%
+                                    }
+                                %>
+                            </select>
                         </div>
+
                         <div class="subject">
-                            
-                            <input type="text" name="subject" placeholder="Subject line(Optional)" >
+
+                            <input type="text" name="subject" placeholder="Subject line (Optional)" >
                         </div>
-                        <textarea name="content" placeholder="Type something here "></textarea>
+
+                        <div class="body">
+                            <textarea name="content" placeholder="Type something here "></textarea>
+                        </div>
+
+                        <div class="attachment">
+                            <input type="file" name="attachments" 
+                                   accept="image/png,image/jpeg,image/jpg,document/doc,document/pdf" 
+                                   multiple="multiple">
+                        </div>
+
+                        <div class="btn">
+                            <input type="submit" value="Send Email">
+                        </div>
                     </form>
                 </div>
 

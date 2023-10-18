@@ -1,11 +1,12 @@
 <%-- 
-    Document   : studentDashboard
-    Created on : 12 Oct 2023, 7:27:23 PM
-    Author     : andil
+    Document   : staffDashboard
+    Created on : Oct 13, 2023, 11:38:06 AM
+    Author     : vuyan
 --%>
 
 <%@page import="com.news.hub.entities.Notification"%>
 <%@page import="java.util.List"%>
+<%@page import="com.news.hub.entities.SystemUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,30 +17,42 @@
         <link rel="stylesheet" href="Pages/learneDahboard.css">
     </head>
     <body>
+        <%
+            SystemUser user = (SystemUser) session.getAttribute("user");
+            String userInitials = user.getFirstName().substring(1,1)
+                                    + user.getLastName().substring(1,1);
+        %>
     <div class="background"></div>
+    
     <div class="container">
+        
         <div class="left-nav">
+            
             <div class="logo-cont">
-                <img src="Pages/logo.png" alt="">
+                <img src="Pages/logo.png" alt="Logo">
             </div>
+            
             <div class="nav-container active">
                 <a href="">
                     <i class="fa-solid fa-house" ></i> Home
                 </a>
             </div>
-            <div class="nav-container">
-                <a href="studentDetails.jsp">
-                    <i class="fa-solid fa-user"></i> Account
-                </a>
-            </div>
+            
             <div class="nav-container">
                 <a href="">
-                    <i class="fa-solid fa-bell"></i> Notification
+                    <i class="fa-solid fa-user"></i>Profile
                 </a>
             </div>
+            
+            <div class="nav-container">
+                <a href="">
+                    <i class="fa-solid fa-bell"></i> Notifications
+                </a>
+            </div>
+            
             <div class="nav-container">
                 <a href="emailViewPage.jsp">
-                    <i class="fa-solid fa-envelope"></i> Email
+                    <i class="fa-solid fa-envelope"></i> Emails
                 </a>
             </div>
 
@@ -48,8 +61,6 @@
                     <i class="fa-solid fa-door-open"></i>logout
                 </a>
             </div>
-            
-            
         </div>
 
         <!--
@@ -67,7 +78,7 @@
             </form>
 
             <div class="userProfile">
-                
+                <i style="color: teal"><%=userInitials%></i>
             </div>
         </div>
         <!--
@@ -78,12 +89,9 @@
             <form action="NotificationServlet.do" method="POST">
                 
                 <%
-                    //Use for each loop
-                    
-                    List<Notification>studentNotifications = (List<Notification>)session.getAttribute("studentNotifications");
-                    
-                    
-                    for(Notification notif : studentNotifications){
+                    List<Notification>notificationsByUser = (List<Notification>)session.getAttribute("notificationsByUser");
+               
+                    for(Notification notif : notificationsByUser){
                 %>
                 <button type="submit" name="notificationId" value="<%=notif.getNotifId()%>" class="notification-summary">
                       <img src="Pages/graduation.png" alt="" >  
@@ -95,15 +103,14 @@
                 <%
                     }
                 %>
-
-               
             </form>
         </div>
+        
         <div class="text">
-                <h1>Today's Headlines</h1>
+                <h1>Hello <%=user.getFirstName()%> </h1>
         </div>
-
 
     </div>
 </body>
 </html>
+
