@@ -32,6 +32,14 @@
         <servlet-name>EditStudentDetails</servlet-name>
         <servlet-class>com.news.hub.controller.EditStudentDetails</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>com.news.hub.controller.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendEmail</servlet-name>
+        <servlet-class>com.news.hub.controller.SendEmail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>EditStudentDetails</servlet-name>
         <url-pattern>/EditStudentDetails.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/LogoutServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendEmail</servlet-name>
+        <url-pattern>/SendEmail.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

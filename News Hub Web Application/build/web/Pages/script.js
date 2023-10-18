@@ -8,6 +8,26 @@ let jobTitle = document.getElementById("jobTitle");
 let userpassword = document.getElementById("userpassword");
 let passconfirmation = document.getElementById("passconfirmation");
 let createAccBtn = document.getElementById("createAccBtn");
+let compose = document.getElementById("compose");
+let leftSide = document.getElementById("left-side");
+let topNave = document.getElementById("topNav");
+/**/
+
+
+
+
+document.getElementById("composeBtn").addEventListener("click",function(){
+
+    compose.classList.toggle("visible");
+    leftSide.classList.toggle("blur");
+    topNave.classList.toggle("blur");
+    document.getElementById("form").classList.toggle("blur");
+});
+
+document.getElementById("hi").addEventListener("click",()=>{
+
+    document.getElementById("notifVisible").classList.toggle("visible");
+});
 
 
 passconfirmation.addEventListener("input",() => {
