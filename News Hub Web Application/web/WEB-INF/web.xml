@@ -40,6 +40,10 @@
         <servlet-name>SendEmail</servlet-name>
         <servlet-class>com.news.hub.controller.SendEmail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ViewEmailServlet</servlet-name>
+        <servlet-class>com.news.hub.controller.ViewEmailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
@@ -80,17 +84,13 @@
         <servlet-name>SendEmail</servlet-name>
         <url-pattern>/SendEmail.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewEmailServlet</servlet-name>
+        <url-pattern>/ViewEmailServlet.do</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    <error-page>
-        <error-code>500</error-code>
-        <location>/page_under_construction.jsp</location>
-    </error-page>
-    <error-page>
-        <error-code>404</error-code>
-        <location>/page_under_construction.jsp</location>
-    </error-page>
 </web-app>

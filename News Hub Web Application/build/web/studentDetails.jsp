@@ -98,7 +98,7 @@
                             <input type="password" name="password" id="" value="<%=student.getPassword()%>" required>
                         </div>
                         
-                            <input type="submit" name="" id="" value="submit" class="edit submit" >
+                        <input type="submit" name="" id="" value="submit" class="edit submit" onsubmit="alert('you have successfully updated your details')" >
                         
                     
                         

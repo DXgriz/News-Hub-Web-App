@@ -4,6 +4,8 @@
     Author     : andil
 --%>
 
+<%@page import="java.nio.charset.StandardCharsets"%>
+<%@page import="com.news.hub.entities.Email"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -72,12 +74,17 @@
             END : TOP-NAV
             START : BODY-CONT
         -->
+        
+        
+        <%
+            Email emailToRead = (Email)session.getAttribute("emailToRead");
+        %>
         <div class="body-cont">
-            <p>sdsad</p>
+            <p><%=new String(emailToRead.getContent(),StandardCharsets.UTF_8) %></p>
             
         </div>
         <div class="text">
-            <h1>jaldjsakdklsaj</h1>
+            <h1><%=emailToRead.getSubjectLine() %></h1>
         </div>
     </div>
 </body>
