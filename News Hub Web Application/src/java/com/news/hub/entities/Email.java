@@ -35,7 +35,7 @@ public class Email implements Serializable {
     
     private byte[] fileAttachment;
     
-    private String content;
+    private byte[] content;
 
     public Email() {
     }
@@ -80,11 +80,11 @@ public class Email implements Serializable {
         this.fileAttachment = fileAttachment;
     }
 
-    public String getContent() {
+    public byte[] getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(byte[] content) {
         this.content = content;
     }
     
