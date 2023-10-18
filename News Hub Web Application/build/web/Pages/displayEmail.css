@@ -1,0 +1,13 @@
+@import url('learneDahboard.css');
+
+.body-cont p
+{
+    width: 50%;
+    height: 100%;
+    color: grey;
+    left: 25%;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    overflow-y: scroll;
+}
