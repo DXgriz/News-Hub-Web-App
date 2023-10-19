@@ -41,8 +41,13 @@
         <servlet-class>com.news.hub.controller.SendEmail</servlet-class>
     </servlet>
     <servlet>
+<<<<<<< HEAD
+        <servlet-name>SupportServlet</servlet-name>
+        <servlet-class>com.news.hub.controller.SupportServlet</servlet-class>
+=======
         <servlet-name>ViewEmailServlet</servlet-name>
         <servlet-class>com.news.hub.controller.ViewEmailServlet</servlet-class>
+>>>>>>> e1b40955599092bd46a86e31bbe641d5bb69ecb0
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
@@ -85,8 +90,13 @@
         <url-pattern>/SendEmail.do</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+<<<<<<< HEAD
+        <servlet-name>SupportServlet</servlet-name>
+        <url-pattern>/SupportServlet.do</url-pattern>
+=======
         <servlet-name>ViewEmailServlet</servlet-name>
         <url-pattern>/ViewEmailServlet.do</url-pattern>
+>>>>>>> e1b40955599092bd46a86e31bbe641d5bb69ecb0
     </servlet-mapping>
     <session-config>
         <session-timeout>

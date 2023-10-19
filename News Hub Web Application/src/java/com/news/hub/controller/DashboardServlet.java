@@ -92,6 +92,7 @@ public class DashboardServlet extends HttpServlet {
                 }
             }
             response.sendRedirect("staffDashboard.jsp");
+
         } else if (user instanceof Student) {
             //TODO: Get all information realated to student and redirect to Student dashbboard
             List<Email> userEmails = new ArrayList<>();
