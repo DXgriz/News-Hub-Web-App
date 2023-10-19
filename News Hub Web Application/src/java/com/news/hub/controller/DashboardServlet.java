@@ -12,7 +12,6 @@ import com.news.hub.entities.Student;
 import com.news.hub.entities.SystemUser;
 import com.news.hub.session.EmailFacadeLocal;
 import com.news.hub.session.NotificationFacadeLocal;
-import com.news.hub.session.StaffFacadeLocal;
 import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -30,9 +29,6 @@ import javax.servlet.http.HttpSession;
  * @author andil
  */
 public class DashboardServlet extends HttpServlet {
-
-    @EJB
-    private StaffFacadeLocal staffFacade;
 
     @EJB
     private NotificationFacadeLocal notificationFacade;
