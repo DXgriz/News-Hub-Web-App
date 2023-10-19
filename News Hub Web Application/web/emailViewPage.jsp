@@ -127,7 +127,7 @@
                             <button type="submit"value="<%=email.getEmailId()%>" name="emailId">
                                 <div class="sender-name">
                                     <p><%=
-                                        email.getSender().getFirstName()+" "+ email.getSender().getFirstName()
+                                        email.getSender().getFirstName()+" "+ email.getSender().getLastName()
                                         %> 
                                     </p>
                                 </div>
