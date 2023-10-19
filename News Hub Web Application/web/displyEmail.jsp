@@ -22,7 +22,7 @@
             <div class="logo-cont">
                 <img src="Pages/logo.png" alt="">
             </div>
-            <div class="nav-container active">
+            <div class="nav-container">
                 <a href="">
                     <i class="fa-solid fa-house" ></i> Home
                 </a>
@@ -37,7 +37,7 @@
                     <i class="fa-solid fa-bell"></i> Notification
                 </a>
             </div>
-            <div class="nav-container">
+            <div class="nav-container active">
                 <a href="">
                     <i class="fa-solid fa-envelope"></i> Email
                 </a>
