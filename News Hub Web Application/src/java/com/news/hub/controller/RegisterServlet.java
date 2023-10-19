@@ -98,6 +98,7 @@ public class RegisterServlet extends HttpServlet {
                 student.setId(Long.parseLong(identity));
                 student.setEmailAddress(email);
                 student.setPassword(password);
+                
                 student.setStudentNumber(Long.parseLong(request.getParameter("studentNumber")));
                 student.setCourse(courseFacade.find(request.getParameter("course")));
                 student.setStudyLevel(Integer.valueOf(request.getParameter("level")));

@@ -95,7 +95,12 @@ public class DashboardServlet extends HttpServlet {
 
         } else if (user instanceof Student) {
             //TODO: Get all information realated to student and redirect to Student dashbboard
-
+            List<Email> userEmails = new ArrayList<>();
+        //SystemUser user = (SystemUser)session.getAttribute("user");
+        
+             findUserEmail(user, userEmails);
+        
+             session.setAttribute("userEmails", userEmails);
             //populating user inbox 
             for (Email email : emails) {
                 if (email.getRecipient().contains(user)) {
@@ -135,5 +140,23 @@ public class DashboardServlet extends HttpServlet {
         }
 
         return notifications;
+    }
+    
+        private void findUserEmail(SystemUser user,List<Email> userEmails)
+    {
+        List<Email> allEmails = emailFacade.findAll();
+        
+        for(Email email : allEmails)
+        {
+            List<SystemUser> recipients = email.getRecipient();
+            for(SystemUser recipient : recipients)
+            {
+                if(user.getEmailAddress().equalsIgnoreCase(recipient.getEmailAddress()))
+                {
+                    userEmails.add(email);
+                }
+            }
+        }
+        
     }
 }

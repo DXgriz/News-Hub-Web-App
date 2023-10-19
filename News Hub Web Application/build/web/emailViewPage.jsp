@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="com.news.hub.entities.Email"%>
 <%@page import="java.util.List"%>
 <%@page import="com.news.hub.entities.SystemUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -25,6 +26,8 @@
         <%
             SystemUser user = (SystemUser) session.getAttribute("user");
             List<SystemUser> allUsers = (List<SystemUser>) session.getAttribute("allUsers");
+            List<Email> userEmails = (List<Email>) session.getAttribute("userEmails");
+            
 
         %>
 
@@ -113,74 +116,32 @@
             </div>
 
             <div class="body-cont">
-                <form action="" id="form">
+                <form action="ViewEmailServlet.do" id="form" method="post">
                     <ul>
+                        
+                        <%
+                            for(Email email : userEmails)
+                            {
+                        %>
                         <li class=".email-summary">
-                            <button type="submit">
+                            <button type="submit"value="<%=email.getEmailId()%>" name="emailId">
                                 <div class="sender-name">
-                                    <p>firtname lastname</p>
+                                    <p><%=
+                                        email.getSender().getFirstName()+" "+ email.getSender().getFirstName()
+                                        %> 
+                                    </p>
                                 </div>
 
                                 <div class="subject-line">
-                                    eMAIL subject line
+                                    <%=
+                                       email.getSubjectLine()
+                                    %>
                                 </div>
                             </button>
                         </li>
-                        <li class=".email-summary">
-                            <button type="submit">
-                                <div class="sender-name">
-                                    <p>firtname lastname</p>
-                                </div>
+                        <%}
+                        %>
 
-                                <div class="subject-line">
-                                    eMAIL subject line
-                                </div>
-                            </button>
-                        </li>
-                        <li class=".email-summary">
-                            <button type="submit">
-                                <div class="sender-name">
-                                    <p>firtname lastname</p>
-                                </div>
-
-                                <div class="subject-line">
-                                    eMAIL subject line
-                                </div>
-                            </button>
-                        </li>
-                        <li class=".email-summary">
-                            <button type="submit">
-                                <div class="sender-name">
-                                    <p>firtname lastname</p>
-                                </div>
-
-                                <div class="subject-line">
-                                    eMAIL subject line
-                                </div>
-                            </button>
-                        </li>
-                        <li class=".email-summary">
-                            <button type="submit">
-                                <div class="sender-name">
-                                    <p>firtname lastname</p>
-                                </div>
-
-                                <div class="subject-line">
-                                    eMAIL subject line
-                                </div>
-                            </button>
-                        </li>
-                        <li class=".email-summary">
-                            <button type="submit">
-                                <div class="sender-name">
-                                    <p>firtname lastname</p>
-                                </div>
-
-                                <div class="subject-line">
-                                    eMAIL subject line
-                                </div>
-                            </button>
-                        </li>
 
                     </ul>
 
