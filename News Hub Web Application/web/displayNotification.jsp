@@ -32,8 +32,8 @@
                 </a>
             </div>
             <div class="nav-container">
-                <a href="">
-                    <i class="fa-solid fa-house" ></i> Home
+                <a href="studentDetails.jsp">
+                    <i class="fa-solid fa-user"></i> Account
                 </a>
             </div>
             <div class="nav-container active">

@@ -116,8 +116,7 @@ public class DashboardServlet extends HttpServlet {
             }
 
             //getting student notifications
-            List<Notification> studentNotifications = getStudentNotofications(
-                    notificationFacade.findAll(), ((Student) user).getStudyLevel());
+            List<Notification> studentNotifications = getStudentNotofications(((Student) user).getStudyLevel());
             session.setAttribute("studentNotifications", studentNotifications);
 
             response.sendRedirect("studentDashboard.jsp");
@@ -130,16 +129,17 @@ public class DashboardServlet extends HttpServlet {
         processRequest(request, response);
     }
 
-    private List<Notification> getStudentNotofications(List<Notification> notifications, int level) {
-        notifications = notificationFacade.findAll();
-
+    private List<Notification> getStudentNotofications( int level) {
+        List<Notification> notifications = notificationFacade.findAll();
+        List<Notification> studentNotif = new ArrayList<>();
+        
         for (Notification notif : notifications) {
-            if (notif.getTargetLevel() != level) {
-                notifications.remove(notif);
+            if (notif.getTargetLevel() == level) {
+                studentNotif.add(notif);
             }
         }
 
-        return notifications;
+        return studentNotif;
     }
     
         private void findUserEmail(SystemUser user,List<Email> userEmails)
