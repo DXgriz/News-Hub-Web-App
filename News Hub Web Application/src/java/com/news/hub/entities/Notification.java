@@ -6,10 +6,13 @@
 package com.news.hub.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -27,6 +30,8 @@ public class Notification implements Serializable {
     private byte[] file;
     private String fileName;
     private Integer targetLevel;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDate;
 
     public Notification() {
     }
@@ -77,6 +82,14 @@ public class Notification implements Serializable {
 
     public void setFileName(String fileName) {
         this.fileName = fileName;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
     
     

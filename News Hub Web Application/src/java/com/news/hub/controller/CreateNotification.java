@@ -11,6 +11,7 @@ import com.news.hub.session.NotificationFacadeLocal;
 import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -71,6 +72,7 @@ public class CreateNotification extends HttpServlet
         notif.setTargetLevel(level);
         notif.setSubjectLine(subject);
         notif.setFileName(fileName);
+        notif.setCreationDate(new Date());
 
         return notif;
     }

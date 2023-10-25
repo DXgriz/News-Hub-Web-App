@@ -109,7 +109,7 @@
                       <img src="Notifications/<%=notif.getFileName()%>" alt="" >  
                       <h1> <%=notif.getSubjectLine()%></h1>    
                        <div class="notification-date">
-                            23 / 02 / 2023
+                           <%=notif.getCreationDate().getDate()%> / <%=notif.getCreationDate().getMonth()+1%> / <%=notif.getCreationDate().getYear()%>
                        </div>        
                 </button>
                 <%
