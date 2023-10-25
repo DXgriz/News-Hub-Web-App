@@ -7,7 +7,6 @@ package com.news.hub.controller;
 
 import com.news.hub.entities.Notification;
 import com.news.hub.entities.Staff;
-import com.news.hub.entities.SystemUser;
 import com.news.hub.session.NotificationFacadeLocal;
 import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
@@ -43,8 +42,9 @@ public class CreateNotification extends HttpServlet
         HttpSession session = request.getSession();
         Staff user = (Staff)session.getAttribute("user");
         String subjectLine = request.getParameter("subject");
-        String content = request.getParameter("content");
+        byte[] content = request.getParameter("content").getBytes();
         Part part = request.getPart("file");
+        String filename = part.getSubmittedFileName();
         InputStream is = part.getInputStream();
         
         byte[] file = new byte[is.available()];
@@ -54,7 +54,7 @@ public class CreateNotification extends HttpServlet
         int level  = Integer.parseInt(request.getParameter("level"));
         
         
-        Notification notif = createNotification(content, file, level, subjectLine);
+        Notification notif = createNotification(content, file, level, subjectLine,filename);
         
         user.getNotifications().add(notif);
         systemUserFacade.edit(user);
@@ -63,13 +63,14 @@ public class CreateNotification extends HttpServlet
         
 
     }
-    private Notification createNotification(String content,byte[] file,int level, String subject)
+    private Notification createNotification(byte[] content,byte[] file,int level, String subject,String fileName)
     {
         Notification notif  = new Notification();
         notif.setContent(content);
         notif.setFile(file);
         notif.setTargetLevel(level);
         notif.setSubjectLine(subject);
+        notif.setFileName(fileName);
 
         return notif;
     }

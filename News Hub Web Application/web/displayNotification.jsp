@@ -4,6 +4,10 @@
     Author     : andil
 --%>
 
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.OutputStream"%>
+<%@page import="java.io.File"%>
+<%@page import="java.nio.charset.StandardCharsets"%>
 <%@page import="com.news.hub.entities.Notification"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -80,18 +84,26 @@
                     <%
                     
                         Notification selectedNotification = (Notification)session.getAttribute("selectedNotification");
-                            
+                        File file = new File("D:/Files/projects/Git projects/News Hub/News-Hub-Web-App/News Hub Web Application/web/Notifications/"+selectedNotification.getFileName());
+                        file.createNewFile();
+                        
+                       OutputStream os = new FileOutputStream(file);
+                       os.write(selectedNotification.getFile());
+                       os.flush();
+                       os.close();
                     %>
                     <div id="notifVisible" class="notification-details" >
                     <div class="content-file">
-                        <img src="Pages/graduation.png" alt="">
+                        
+                        
+                        <img src="Notifications/<%=selectedNotification.getFileName() %>" alt="">
                     </div>
                     <h1 class="subject">
                        <u> <%=selectedNotification.getSubjectLine()%></u>
                     </h1>
                     <div class="content">
                         <p>
-                            <%=selectedNotification.getContent()%>
+                            <%=new String(selectedNotification.getContent(),StandardCharsets.UTF_8)%>
                         </p>
                     </div>
                     </div>

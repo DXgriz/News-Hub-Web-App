@@ -21,7 +21,7 @@
     <body>
         <div class="background"></div>
 
-        <div class="container">
+        <div class="container" style=" left: 20%">
 
             <div class="left-nav">
                 <div class="logo-cont">

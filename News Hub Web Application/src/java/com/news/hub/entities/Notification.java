@@ -23,8 +23,9 @@ public class Notification implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long notifId;
     private String subjectLine;
-    private String content;   
+    private byte[] content;   
     private byte[] file;
+    private String fileName;
     private Integer targetLevel;
 
     public Notification() {
@@ -46,11 +47,11 @@ public class Notification implements Serializable {
         this.subjectLine = subjectLine;
     }
 
-    public String getContent() {
+    public byte[] getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(byte[] content) {
         this.content = content;
     }
 
@@ -68,6 +69,14 @@ public class Notification implements Serializable {
 
     public void setTargetLevel(Integer targetLevel) {
         this.targetLevel = targetLevel;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
     }
     
     

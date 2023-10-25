@@ -4,6 +4,10 @@
     Author     : vuyan
 --%>
 
+<%@page import="java.io.OutputStream"%>
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="java.io.File"%>
 <%@page import="com.news.hub.entities.Notification"%>
 <%@page import="java.util.List"%>
 <%@page import="com.news.hub.entities.SystemUser"%>
@@ -93,9 +97,16 @@
                     List<Notification>notificationsByUser = (List<Notification>)session.getAttribute("notificationsByUser");
                
                     for(Notification notif : notificationsByUser){
+                         File file = new File("D:/Files/projects/Git projects/News Hub/News-Hub-Web-App/News Hub Web Application/web/Notifications/"+notif.getFileName());
+                        file.createNewFile();
+                        
+                       OutputStream os = new FileOutputStream(file);
+                       os.write(notif.getFile());
+                       os.flush();
+                       os.close();
                 %>
                 <button type="submit" name="notificationId" value="<%=notif.getNotifId()%>" class="notification-summary">
-                      <img src="Pages/graduation.png" alt="" >  
+                      <img src="Notifications/<%=notif.getFileName()%>" alt="" >  
                       <h1> <%=notif.getSubjectLine()%></h1>    
                        <div class="notification-date">
                             23 / 02 / 2023
