@@ -14,44 +14,6 @@ let topNave = document.getElementById("topNav");
 /**/
 
 
-
-
-document.getElementById("composeBtn").addEventListener("click",function(){
-
-    compose.classList.toggle("visible");
-    leftSide.classList.toggle("blur");
-    topNave.classList.toggle("blur");
-    document.getElementById("form").classList.toggle("blur");
-});
-
-document.getElementById("hi").addEventListener("click",()=>{
-
-    document.getElementById("notifVisible").classList.toggle("visible");
-});
-
-
-passconfirmation.addEventListener("input",() => {
-    
-  if( passconfirmation.value.length <= userpassword.value.length && passconfirmation.value != userpassword.value)
-    {
-        //Make button unclickable
-        createAccBtn.disabled = true;
-
-        if( passconfirmation.value.length === userpassword.value.length)
-        {
-            alert("Incorrect password");
-        }
-
-    }else
-    {
-        //Re activate button
-        createAccBtn.disabled = false;
-    }
-
-});
-
-
-
 userType.addEventListener("change",function(){
     
     if(userType.value === "student")
@@ -82,6 +44,41 @@ userType.addEventListener("change",function(){
     }
 
 });
+
+
+
+document.getElementById("composeBtn").addEventListener("click",function(){
+
+    compose.classList.toggle("visible");
+    leftSide.classList.toggle("blur");
+    topNave.classList.toggle("blur");
+    document.getElementById("form").classList.toggle("blur");
+});
+
+
+
+passconfirmation.addEventListener("input",() => {
+    
+  if( passconfirmation.value.length <= userpassword.value.length && passconfirmation.value !== userpassword.value)
+    {
+        //Make button unclickable
+        createAccBtn.disabled = true;
+
+        if( passconfirmation.value.length === userpassword.value.length)
+        {
+            alert("Incorrect password");
+        }
+
+    }else
+    {
+        //Re activate button
+        createAccBtn.disabled = false;
+    }
+
+});
+
+
+
 
 
 function showSignUp(){

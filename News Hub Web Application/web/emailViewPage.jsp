@@ -162,7 +162,7 @@
                                     }
                                 %>
                             </select>
-                            <button class="cancel-btn" id="composeBtn"><b>X</b></button>
+                            <button class="cancel-btn" id=" "><b>X</b></button>
                         </div>
 
                         <div class="subject">
@@ -189,6 +189,6 @@
             </div>
 
         </div>
-        <script src="Pages/script.js"></script>
+        <script src="Pages/emailScript.js"></script>
     </body>
 </html>
