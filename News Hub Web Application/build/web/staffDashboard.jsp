@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>dashboard</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="Pages/learneDahboard.css">
+        <link rel="stylesheet" href="Pages/emailView.css">
     </head>
     <body>
         <%
@@ -74,7 +74,7 @@
         -->
 
         <div class="top-nav">
-            <a href="https://www.unizulu.ac.za/contact-us/"><b>contact us</b></a>
+             <button id="composeBtn" ><i class="fa-solid fa-pen"></i><b>compose</b></button>
             <a href="https://www.unizulu.ac.za/contact-us/"><b>about us</b></a>
 
             <form action="">
@@ -109,6 +109,43 @@
                     }
                 %>
             </form>
+                <div class="compose-email" id="compose">
+                    
+                    <form action="CreateNotification.do" method="POST" enctype="multipart/form-data">
+
+                        <div class="reciever">
+                            <p>To: </p>
+                            <select name="level" required="">
+                                <option>--select level--</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            
+                            <button class="cancel-btn" id="composeBtn"><b>X</b></button>
+                        </div>
+
+                        <div class="subject">
+
+                            <input type="text" name="subject" placeholder="Subject line" required="">
+                        </div>
+
+                        <div class="body">
+                            <textarea name="content" placeholder="Type something here "required=""></textarea>
+                        </div>
+
+                        <div class="attachment">
+                            <input type="file" name="file" 
+                                   accept="image/png,image/jpeg,image/jpg,document/doc,document/pdf" 
+                                   multiple="multiple">
+                        </div>
+
+                        <div class="submit-btn">
+                            <input type="submit" value="Create noification">
+                        </div>
+                    </form>
+                </div>
         </div>
         
         <div class="text">
@@ -116,6 +153,7 @@
         </div>
 
     </div>
+        <script src="Pages/emailScript.js"></script>
 </body>
 </html>
 

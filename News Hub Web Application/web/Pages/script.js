@@ -45,8 +45,6 @@ userType.addEventListener("change",function(){
 
 });
 
-
-
 document.getElementById("composeBtn").addEventListener("click",function(){
 
     compose.classList.toggle("visible");

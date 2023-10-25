@@ -44,6 +44,10 @@
         <servlet-name>ViewEmailServlet</servlet-name>
         <servlet-class>com.news.hub.controller.ViewEmailServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateNotification</servlet-name>
+        <servlet-class>com.news.hub.controller.CreateNotification</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterAccount</servlet-name>
         <url-pattern>/RegisterAccount.do</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ViewEmailServlet</servlet-name>
         <url-pattern>/ViewEmailServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateNotification</servlet-name>
+        <url-pattern>/CreateNotification.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

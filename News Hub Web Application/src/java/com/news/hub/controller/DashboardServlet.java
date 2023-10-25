@@ -62,13 +62,19 @@ public class DashboardServlet extends HttpServlet {
         HttpSession session = request.getSession();
         SystemUser user = (SystemUser) session.getAttribute("user");
 
+        
         List<Email> emails = emailFacade.findAll();
         List<Email> loggedUserInbox = new ArrayList<>();
         List<Email> loggedUserSentEmails = new ArrayList<>();
-
+        List<Email> userEmails = new ArrayList<>();
         List<SystemUser> allUsers = systemUserFacade.findAll();
         session.setAttribute("allUsers", allUsers);
 
+        findUserEmail(user, userEmails);
+        
+             session.setAttribute("userEmails", userEmails);
+        
+        
         if (user instanceof Staff) {
             //TODO: Get all information realated to staff and redirect to Staff dashbboard
             List<Notification> notificationsByUser = ((Staff) user).getNotifications();
@@ -91,12 +97,10 @@ public class DashboardServlet extends HttpServlet {
 
         } else if (user instanceof Student) {
             //TODO: Get all information realated to student and redirect to Student dashbboard
-            List<Email> userEmails = new ArrayList<>();
+            
         //SystemUser user = (SystemUser)session.getAttribute("user");
         
-             findUserEmail(user, userEmails);
-        
-             session.setAttribute("userEmails", userEmails);
+             
             //populating user inbox 
             for (Email email : emails) {
                 if (email.getRecipient().contains(user)) {
