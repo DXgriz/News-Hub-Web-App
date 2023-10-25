@@ -4,6 +4,8 @@
     Author     : andil
 --%>
 
+<%@page import="com.news.hub.entities.Staff"%>
+<%@page import="com.news.hub.entities.SystemUser"%>
 <%@page import="com.news.hub.entities.Student"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,22 +25,22 @@
                 <img src="Pages/logo.png" alt="">
             </div>
             <div class="nav-container ">
-                <a href="">
+                <a href="DashboardServlet.do">
                     <i class="fa-solid fa-house" ></i> Home
                 </a>
             </div>
             <div class="nav-container active">
-                <a href="">
+                <a href="studentDetails.jsp">
                     <i class="fa-solid fa-user"></i> Account
                 </a>
             </div>
             <div class="nav-container">
-                <a href="">
+                <a href="DashboardServlet.do">
                     <i class="fa-solid fa-bell"></i> Notification
                 </a>
             </div>
             <div class="nav-container">
-                <a href="">
+                <a href="emailViewPage.jsp">
                     <i class="fa-solid fa-envelope"></i> Email
                 </a>
             </div>
@@ -75,11 +77,19 @@
             START : BODY-CONT
         -->
         <%
-            Student student = (Student)session.getAttribute("user");
+            SystemUser user = (SystemUser)session.getAttribute("user");
+            
+            
         %>
         <div class="body-cont">
             <div class="form">
                 <form action="EditStudentDetails.do" method="POST">
+                    <%
+                        if(user instanceof Student)
+                        {
+                            
+                        Student student = (Student)user;
+                    %>
                         <div class="edit">
                             <i class="fa-solid fa-user"></i>
                             <input type="text" name="firstname" id="" value="<%=student.getFirstName()%>" required>
@@ -97,7 +107,33 @@
                             <i class="fa-solid fa-lock"></i>
                             <input type="password" name="password" id="" value="<%=student.getPassword()%>" required>
                         </div>
+                        <%
+                            
+                            }else if(user instanceof Staff)
+                            {
+                                Staff staff = (Staff)user;
+                            
+                        %>
+                        <div class="edit">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" name="firstname" id="" value="<%=staff.getFirstName()%>" required>
+                        </div>
                         
+                        <div class="edit">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" name="lastname" id="" value="<%=staff.getLastName()%>" required>
+                        </div>
+                        <div class="edit">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" name="email" id="" value="<%=staff.getEmailAddress()%>" required>
+                        </div>
+                        <div class="edit">
+                            <i class="fa-solid fa-lock"></i>
+                            <input type="password" name="password" id="" value="<%=staff.getPassword()%>" required>
+                        </div>
+                        <%
+                            }
+                        %>
                         <input type="submit" name="" id="" value="submit" class="edit submit" onsubmit="alert('you have successfully updated your details')" >
                         
                     

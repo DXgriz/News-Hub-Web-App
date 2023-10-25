@@ -39,7 +39,7 @@
                 </a>
             </div>
             <div class="nav-container">
-                <a href="">
+                <a href="DashboardServlet.do">
                     <i class="fa-solid fa-bell"></i> Notification
                 </a>
             </div>
@@ -49,12 +49,6 @@
                 </a>
             </div>
             
-            <div class="nav-container">
-                <a href="support.jsp">
-                    <i class="glyphicon glyphicon-care"></i> Support
-                </a>
-            </div>
-
             <div class="nav-container logout">
                 <a href="LogoutServlet.do">
                     <i class="fa-solid fa-door-open"></i>logout

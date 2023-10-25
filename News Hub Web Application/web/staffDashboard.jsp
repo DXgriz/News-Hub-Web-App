@@ -33,33 +33,29 @@
             </div>
             
             <div class="nav-container active">
-                <a href="">
+                <a href="DashboardServlet.do">
                     <i class="fa-solid fa-house" ></i> Home
                 </a>
             </div>
             
             <div class="nav-container">
-                <a href="">
-                    <i class="fa-solid fa-user"></i>Profile
+                <a href="studentDetails.jsp">
+                    <i class="fa-solid fa-user"></i>Account
                 </a>
             </div>
             
             <div class="nav-container">
-                <a href="">
+                <a href="DashboardServlet.do">
                     <i class="fa-solid fa-bell"></i> Notifications
                 </a>
             </div>
             
             <div class="nav-container">
                 <a href="emailViewPage.jsp">
-                    <i class="fa-solid fa-envelope"></i> Emails
+                    <i class="fa-solid fa-envelope"></i> Email
                 </a>
             </div>
-            <div class="nav-container">
-                <a href="support.jsp">
-                    <i class="glyphicon glyphicon-care"></i> Support
-                </a>
-            </div>
+            
 
             <div class="nav-container logout">
                 <a href="LogoutServlet.do">
@@ -74,7 +70,7 @@
         -->
 
         <div class="top-nav">
-             <button id="composeBtn" ><i class="fa-solid fa-pen"></i><b>compose</b></button>
+             <button id="composeBtn" ><i class="fa-solid fa-pen"></i><b>notification</b></button>
             <a href="https://www.unizulu.ac.za/contact-us/"><b>about us</b></a>
 
             <form action="">
