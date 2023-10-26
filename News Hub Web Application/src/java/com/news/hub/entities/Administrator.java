@@ -8,12 +8,12 @@ import javax.persistence.Entity;
  * @author vuyan
  */
 @Entity
-public class Admininstrator extends SystemUser implements Serializable 
+public class Administrator extends SystemUser implements Serializable 
 {
     private String adminEmail = "admin@newshub.com";
     private String adminPassword;
 
-    public Admininstrator() {
+    public Administrator() {
     }
 
     public String getAdminPassword() {

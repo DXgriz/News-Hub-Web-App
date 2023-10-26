@@ -1,17 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.news.hub.controller;
 
+import com.news.hub.entities.Administrator;
 import com.news.hub.entities.Email;
 import com.news.hub.entities.Notification;
 import com.news.hub.entities.Staff;
 import com.news.hub.entities.Student;
+import com.news.hub.entities.SupportTicket;
 import com.news.hub.entities.SystemUser;
 import com.news.hub.session.EmailFacadeLocal;
 import com.news.hub.session.NotificationFacadeLocal;
+import com.news.hub.session.SupportTicketFacadeLocal;
 import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,6 +27,9 @@ import javax.servlet.http.HttpSession;
  * @author andil
  */
 public class DashboardServlet extends HttpServlet {
+
+    @EJB
+    private SupportTicketFacadeLocal supportTicketFacade;
 
     @EJB
     private NotificationFacadeLocal notificationFacade;
@@ -121,6 +122,34 @@ public class DashboardServlet extends HttpServlet {
 
             response.sendRedirect("studentDashboard.jsp");
         }
+        else if (user instanceof Administrator) {
+            /*
+            //get all information related to the authenticated admin,
+            
+            List<Notification> notificationsByUser = ((Administrator) user).getNotifications();
+            session.setAttribute("notificationsByUser", notificationsByUser);
+            */
+            
+            
+            //get support tickets to be attended by admin and direct to the admin panel/ dashboard
+            
+            List<SupportTicket> tickets = supportTicketFacade.findAll();
+            session.setAttribute("tickets", tickets);
+            
+            session.setAttribute("allUsers", allUsers);
+            
+            response.sendRedirect("AdminPanel.jsp");
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     @Override

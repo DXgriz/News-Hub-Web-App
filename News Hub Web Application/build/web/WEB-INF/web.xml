@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <servlet>
-        <servlet-name>RegisterAccount</servlet-name>
-        <servlet-class>com.news.hub.web.controller.RegisterAccount</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>StartAppServlet</servlet-name>
-        <servlet-class>com.news.hub.web.controller.StartAppServlet</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>com.news.hub.web.controller.Login</servlet-class>
-    </servlet>
+
     <servlet>
         <servlet-name>LoginServlent</servlet-name>
         <servlet-class>com.news.hub.controller.LoginServlent</servlet-class>
@@ -48,18 +37,12 @@
         <servlet-name>CreateNotification</servlet-name>
         <servlet-class>com.news.hub.controller.CreateNotification</servlet-class>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>RegisterAccount</servlet-name>
-        <url-pattern>/RegisterAccount.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>StartAppServlet</servlet-name>
-        <url-pattern>/StartAppServlet.do</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login.do</url-pattern>
-    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>SupportServlet</servlet-name>
+        <servlet-class>com.news.hub.controller.SupportServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>LoginServlent</servlet-name>
         <url-pattern>/LoginServlent.do</url-pattern>
@@ -95,6 +78,11 @@
     <servlet-mapping>
         <servlet-name>CreateNotification</servlet-name>
         <url-pattern>/CreateNotification.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>SupportServlet</servlet-name>
+        <url-pattern>/SupportServlet.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
