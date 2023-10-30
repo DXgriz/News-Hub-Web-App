@@ -4,6 +4,9 @@
     Author     : DXgriz
 --%>
 
+<%@page import="com.news.hub.entities.Course"%>
+<%@page import="com.news.hub.entities.Student"%>
+<%@page import="com.news.hub.entities.Staff"%>
 <%@page import="com.news.hub.entities.SystemUser"%>
 <%@page import="com.news.hub.entities.SupportTicket"%>
 <%@page import="java.util.List"%>
@@ -13,12 +16,17 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Admin Panel</title>
+       <link rel="stylesheet" href="Pages/admin.css">
     </head>
     <body>
         <%
             //List<SupportTicket> tickets = (List<SupportTicket>)session.getAttribute("tickets");
             //List<SystemUser> allUsers =(List<SystemUser>)session.getAttribute("allUsers");
             SystemUser admin = (SystemUser) session.getAttribute("user");
+            List<Student>students = (List)session.getAttribute("students");
+            List<Staff>staffMembers = (List)session.getAttribute("staffMembers");
+            List<Course>courses = (List)session.getAttribute("courses");
+            
         %>
         <div class="background"></div>
         
@@ -79,7 +87,27 @@
             START : BODY-CONT
         -->
         <div class="body-cont">
-
+            <form method="GET" action="AdminServlet.do">
+                <button type="submit" value="students" name="action">
+                    <div>
+                        <%=students.size()%>
+                    </div>
+                    <h1>Students</h1>
+                </button>
+                <button type="submit" value="staffMembers" name="action">
+                    <div>
+                        <%=staffMembers.size()%>
+                    </div>
+                    <h1>Staff Members</h1>
+                </button>
+                <button type="submit" value="courses" name="action">
+                    <div>
+                        <%=courses.size()%>
+                    </div>
+                    <h1>Courses</h1>
+                </button>
+                
+            </form>
         </div>
         
         <div class="text">

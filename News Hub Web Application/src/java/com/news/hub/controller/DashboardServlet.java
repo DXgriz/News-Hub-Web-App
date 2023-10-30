@@ -7,8 +7,11 @@ import com.news.hub.entities.Staff;
 import com.news.hub.entities.Student;
 import com.news.hub.entities.SupportTicket;
 import com.news.hub.entities.SystemUser;
+import com.news.hub.session.CourseFacadeLocal;
 import com.news.hub.session.EmailFacadeLocal;
 import com.news.hub.session.NotificationFacadeLocal;
+import com.news.hub.session.StaffFacadeLocal;
+import com.news.hub.session.StudentFacadeLocal;
 import com.news.hub.session.SupportTicketFacadeLocal;
 import com.news.hub.session.SystemUserFacadeLocal;
 import java.io.IOException;
@@ -27,6 +30,15 @@ import javax.servlet.http.HttpSession;
  * @author andil
  */
 public class DashboardServlet extends HttpServlet {
+
+    @EJB
+    private CourseFacadeLocal courseFacade;
+
+    @EJB
+    private StudentFacadeLocal studentFacade;
+
+    @EJB
+    private StaffFacadeLocal staffFacade;
 
     @EJB
     private SupportTicketFacadeLocal supportTicketFacade;
@@ -133,11 +145,14 @@ public class DashboardServlet extends HttpServlet {
             
             //get support tickets to be attended by admin and direct to the admin panel/ dashboard
             
+            
             List<SupportTicket> tickets = supportTicketFacade.findAll();
             session.setAttribute("tickets", tickets);
             
-            session.setAttribute("allUsers", allUsers);
-            
+            session.setAttribute("staffMembers", staffFacade.findAll());
+            session.setAttribute("students", studentFacade.findAll());
+            session.setAttribute("courses", courseFacade.findAll());
+
             response.sendRedirect("AdminPanel.jsp");
         }
         
@@ -171,7 +186,7 @@ public class DashboardServlet extends HttpServlet {
         return studentNotif;
     }
     
-        private void findUserEmail(SystemUser user,List<Email> userEmails)
+    private void findUserEmail(SystemUser user,List<Email> userEmails)
     {
         List<Email> allEmails = emailFacade.findAll();
         

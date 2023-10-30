@@ -45,7 +45,7 @@ public class SupportServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
 
         String email = request.getParameter("sender");
         String query = request.getParameter("query");

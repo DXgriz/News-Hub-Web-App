@@ -92,7 +92,7 @@
                     
                     for(Notification notif : studentNotifications){
                         
-                    File file = new File("D:/Files/projects/Git projects/News Hub/News-Hub-Web-App/News Hub Web Application/web/Notifications/"+notif.getFileName());
+                    File file = new File("D:/Files/projects/Git projects/News-Hub-Web-App/News Hub Web Application/web/Notifications/"+notif.getFileName());
                         file.createNewFile();
                         
                        OutputStream os = new FileOutputStream(file);

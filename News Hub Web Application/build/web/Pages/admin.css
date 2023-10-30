@@ -1,0 +1,59 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 29 Oct 2023, 2:35:13 PM
+    Author     : andil
+*/
+@import url('emailView.css');
+
+form
+{
+    display: flex;
+    align-items: center;
+}
+form button
+{
+    height: 50%;
+    width: 30%;
+    position: relative;
+    display: flex;
+    margin-left: 2%;
+    border-radius: 50px;
+    background-color: var(--fisrt-add);
+    cursor: pointer;
+}
+form button div
+{
+    background-color: white;
+    position: absolute;
+    width: 60%;
+    height: 70%;
+    left: 20%;
+    border-radius: 250px;
+    display: flex;
+    align-items: center;
+    font-size: 100px;
+    justify-content: center;
+    
+}
+form button h1
+{
+    position: absolute;
+    font-size: xx-large;
+    top: 75%;
+    display: flex;
+    width: 100%;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+table 
+{
+   width: 100%;
+   color: grey;
+   background-color: blue; 
+}
