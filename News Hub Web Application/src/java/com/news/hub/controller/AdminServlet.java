@@ -30,11 +30,11 @@ public class AdminServlet extends HttpServlet
             request.getRequestDispatcher("displayStudents.jsp").forward(request, response);
         }else if(action.equalsIgnoreCase("staffMembers"))
         {
-            request.getRequestDispatcher("").forward(request, response);
+            request.getRequestDispatcher("displayStaffTable.jsp").forward(request, response);
         }else 
         {
           
-            request.getRequestDispatcher("").forward(request, response);
+            request.getRequestDispatcher("displayCourse.jsp").forward(request, response);
         }       
         
     }
