@@ -24,13 +24,13 @@ import javax.servlet.http.HttpSession;
  * @author andil
  */
 public class RegisterServlet extends HttpServlet {
-    
+
     @EJB
     private SystemUserFacadeLocal systemUserFacade;
-    
+
     @EJB
     private CourseFacadeLocal courseFacade;
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -39,7 +39,7 @@ public class RegisterServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegisterServlet</title>");            
+            out.println("<title>Servlet RegisterServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
@@ -47,77 +47,99 @@ public class RegisterServlet extends HttpServlet {
             out.println("</html>");
         }
     }
-    
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
+
     }
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         HttpSession session = request.getSession(true);
         SystemUser user = new SystemUser();
-        
-        try {
-            String userType = request.getParameter("userType");
-            String firstname = request.getParameter("firstname");
-            String lastname = request.getParameter("lastname");
-            String identity = request.getParameter("identity");
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            
-            user.setFirstName(firstname);
-            user.setLastName(lastname);
-            user.setId(Long.parseLong(identity));
-            user.setEmailAddress(email);
-            user.setPassword(password);
-            if (userType.equalsIgnoreCase("staff")) {
-                String occupation = request.getParameter("occupation");
-                
-                Staff staff = new Staff();
-                staff.setFirstName(firstname);
-                staff.setLastName(lastname);
-                staff.setId(Long.parseLong(identity));
-                staff.setEmailAddress(email);
-                staff.setPassword(password);
-                staff.setStaffNumber(Long.parseLong(request.getParameter("staffNumber")));
-                staff.setOccupation(occupation);
 
-                //user = staff;
-                session.setAttribute("user", staff);
-                systemUserFacade.create(staff);
-                
-            } else if (userType.equalsIgnoreCase("student")) {
-                Student student = new Student();
-                student.setFirstName(firstname);
-                student.setLastName(lastname);
-                student.setId(Long.parseLong(identity));
-                student.setEmailAddress(email);
-                student.setPassword(password);
-                
-                student.setStudentNumber(Long.parseLong(request.getParameter("studentNumber")));
-                student.setCourse(courseFacade.find(request.getParameter("course")));
-                student.setStudyLevel(Integer.valueOf(request.getParameter("level")));
-                
-                session.setAttribute("user", student);
+        String userType = request.getParameter("userType");
+        String firstname = request.getParameter("firstname");
+        String lastname = request.getParameter("lastname");
+        String identity = request.getParameter("identity");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-                // user = student;
-                systemUserFacade.create(student);
+        if (!findMathichingUser(email, Long.parseLong(identity))) {
+
+            try {
+
+                user.setFirstName(firstname);
+                user.setLastName(lastname);
+                user.setId(Long.parseLong(identity));
+                user.setEmailAddress(email);
+                user.setPassword(password);
+                if (userType.equalsIgnoreCase("staff")) {
+                    String occupation = request.getParameter("occupation");
+
+                    Staff staff = new Staff();
+                    staff.setFirstName(firstname);
+                    staff.setLastName(lastname);
+                    staff.setId(Long.parseLong(identity));
+                    staff.setEmailAddress(email);
+                    staff.setPassword(password);
+                    staff.setStaffNumber(Long.parseLong(request.getParameter("staffNumber")));
+                    staff.setOccupation(occupation);
+
+                    //user = staff;
+                    session.setAttribute("user", staff);
+                    systemUserFacade.create(staff);
+
+                } else if (userType.equalsIgnoreCase("student")) {
+                    Student student = new Student();
+                    student.setFirstName(firstname);
+                    student.setLastName(lastname);
+                    student.setId(Long.parseLong(identity));
+                    student.setEmailAddress(email);
+                    student.setPassword(password);
+
+                    student.setStudentNumber(Long.parseLong(request.getParameter("studentNumber")));
+                    student.setCourse(courseFacade.find(request.getParameter("course")));
+                    student.setStudyLevel(Integer.valueOf(request.getParameter("level")));
+
+                    session.setAttribute("user", student);
+
+                    // user = student;
+                    systemUserFacade.create(student);
+                }
+                //session.setAttribute("user", user);
+                response.sendRedirect("DashboardServlet.do");
+                //request.getRequestDispatcher("DashboardServlet.do").forward(request, response);
+                //response.sendRedirect("DashboardServlet.do");
+            } catch (NullPointerException e) 
+            {
                 
             }
+        } else 
+        {
+            request.setAttribute("registrationError", "User Already Exists! Try logging into your account");
+            request.getRequestDispatcher("login_signup.jsp").forward(request, response);
+        }
+        //session.setAttribute("user", user);         
+    }
 
-            //session.setAttribute("user", user);
-            response.sendRedirect("DashboardServlet.do");
-            //request.getRequestDispatcher("DashboardServlet.do").forward(request, response);
-            //response.sendRedirect("DashboardServlet.do");
-        } catch (NullPointerException e) {
-            
+    private boolean findMathichingUser(String email,Long idNo) 
+    {
+        boolean userExists = false;
+
+        for (SystemUser user : systemUserFacade.findAll()) 
+        {
+            if (user.getEmailAddress().equalsIgnoreCase(email) || user.getId().equals(idNo)) 
+            {
+                userExists = true;
+                break;
+            }
         }
 
-        //session.setAttribute("user", user);         
+        return userExists;
     }
 }

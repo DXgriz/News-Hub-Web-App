@@ -46,7 +46,7 @@
             </div>
 
             <div class="nav-container logout">
-                <a href="">
+                <a href="LogoutServlet.do">
                     <i class="fa-solid fa-door-open"></i>logout
                 </a>
             </div>

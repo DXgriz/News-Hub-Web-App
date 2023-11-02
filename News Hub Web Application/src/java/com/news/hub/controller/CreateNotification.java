@@ -56,6 +56,8 @@ public class CreateNotification extends HttpServlet
         
         
         Notification notif = createNotification(content, file, level, subjectLine,filename);
+       // notificationFacade.create(notif);
+        
         
         user.getNotifications().add(notif);
         systemUserFacade.edit(user);

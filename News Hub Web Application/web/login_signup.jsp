@@ -35,29 +35,29 @@
                 </div>
                 <!-- #######################Staff extra details#############################-->
 
-                    <div class="input invisible" id="staffNumber">
-                        <input type="text" name="staffNumber" placeholder="Staff Number" />
-                    </div>
-                    <div class="input invisible" id="jobTitle">
-                        <input type="text" name="occupation" placeholder="Occupation" />
-                    </div>
+                <div class="input invisible" id="staffNumber">
+                    <input type="text" name="staffNumber" placeholder="Staff Number" />
+                </div>
+                <div class="input invisible" id="jobTitle">
+                    <input type="text" name="occupation" placeholder="Occupation" />
+                </div>
 
                 <!--#########################################################################-->
 
                 <!-- #######################Student extra Details#############################-->
 
-                    <div class="input invisible" id="faculty">
-                        <input type="text" name="studentNumber"  placeholder="Student Number" />
-                    </div>
-                    <div class="input invisible" id="course">
-                        <input type="text" name="course" placeholder="Course" />
-                    </div>
-                    <div class="input invisible" id="level">
-                        <input type="text" name="level" placeholder="Academic level" />
-                    </div>
+                <div class="input invisible" id="faculty">
+                    <input type="text" name="studentNumber"  placeholder="Student Number" />
+                </div>
+                <div class="input invisible" id="course">
+                    <input type="text" name="course" placeholder="Course" />
+                </div>
+                <div class="input invisible" id="level">
+                    <input type="text" name="level" placeholder="Academic level" />
+                </div>
 
-               
-                
+
+
 
                 <!--#########################################################################-->
 
@@ -68,6 +68,14 @@
                 <div class="input">
                     <input type="password" name="confirm password" placeholder="Confirm password" required="" id="passconfirmation">
                 </div>
+                
+                <span>
+                    <c:if test="${not empty requestScope.registrationError}">
+                        <div class="error-message" style="color: red;">
+                            ${requestScope.registrationError}
+                        </div>
+                    </c:if>
+                </span>
 
                 <button type="submit" id="createAccBtn">submit</button>
 
@@ -105,6 +113,13 @@
                 </button>
                 <a href="">Forgotten password</a>
                 <hr>
+                <span>
+                    <c:if test="${not empty requestScope.loginError}">
+                        <div class="error-message" style="color: red;">
+                            ${requestScope.loginError}
+                        </div>
+                    </c:if>
+                </span>
 
             </form>
             <button id="create-acc" onclick="showSignUp()">Create new Account</button>

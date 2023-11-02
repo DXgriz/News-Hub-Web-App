@@ -35,6 +35,11 @@
                 <a href="login_signup.jsp"><span class="glyphicon glyphicon-log-in"></span> Sing In</a>
             </div>
 
+            <div class="text">
+                <h1>How can we help you today? </h1>
+            </div>
+
+
             <div class="body-cont">
 
                 <div class="form-control">
@@ -53,7 +58,7 @@
                             <input type="checkbox" id="high" name="high" value="high">
                             <label for="high"> High Priority</label><br>
                         </div>
-                        
+
                         <button type="submit" value="Send">Send</button>
                     </form>
                 </div>

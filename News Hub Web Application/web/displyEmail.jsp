@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="Pages/displayEmail.css">
-    <title>JSP Page</title>
+    <title>emails</title>
 </head>
 <body>
     <div class="background"></div>
@@ -23,28 +23,28 @@
                 <img src="Pages/logo.png" alt="">
             </div>
             <div class="nav-container">
-                <a href="">
+                <a href="staffDashboard.jsp">
                     <i class="fa-solid fa-house" ></i> Home
                 </a>
             </div>
             <div class="nav-container">
-                <a href="">
+                <a href="staffDashboard.jsp">
                     <i class="fa-solid fa-house" ></i> Home
                 </a>
             </div>
             <div class="nav-container">
-                <a href="">
+                <a href="staffDashboard.jsp">
                     <i class="fa-solid fa-bell"></i> Notification
                 </a>
             </div>
             <div class="nav-container active">
-                <a href="">
-                    <i class="fa-solid fa-envelope"></i> Email
+                <a href="emailViewPage.jsp">
+                    <i class="fa-solid fa-envelope"></i> Emails
                 </a>
             </div>
 
             <div class="nav-container logout">
-                <a href="">
+                <a href="LogoutServlet.do">
                     <i class="fa-solid fa-door-open"></i>logout
                 </a>
             </div>

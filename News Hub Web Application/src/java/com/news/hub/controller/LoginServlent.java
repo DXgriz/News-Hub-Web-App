@@ -58,6 +58,7 @@ public class LoginServlent extends HttpServlet {
         HttpSession session = request.getSession(true);
         String email = request.getParameter("email");
         String password = request.getParameter("password");
+        
         try{
             
             SystemUser user = findMathichingUser(email);
@@ -67,6 +68,7 @@ public class LoginServlent extends HttpServlet {
                 response.sendRedirect("DashboardServlet.do");
             }else
             {
+                request.setAttribute("loginError", "Invalid username or password");
                request.getRequestDispatcher("login_signup.jsp").forward(request, response);
             }
             
@@ -77,6 +79,10 @@ public class LoginServlent extends HttpServlet {
         {
             System.out.println("User not found ");
             // direct to loginPage
+            
+            request.setAttribute("loginError", "Invalid username or password");
+            request.getRequestDispatcher("login_signup.jsp").forward(request, response);
+
         }
     
     }

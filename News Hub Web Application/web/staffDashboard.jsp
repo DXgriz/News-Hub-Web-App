@@ -60,6 +60,12 @@
                 </a>
             </div>
             
+            <div class="nav-container">
+                <a href="support.jsp">
+                    <i class="fa-solid fa-magnifying-glass"></i> Help & Support
+                </a>
+            </div>
+            
 
             <div class="nav-container logout">
                 <a href="LogoutServlet.do">
@@ -83,7 +89,7 @@
             </form>
 
             <div class="userProfile">
-                <i style="color: teal"><%=userInitials%></i>
+                <i style="color: black;"><%=userInitials%></i>
             </div>
         </div>
         <!--
