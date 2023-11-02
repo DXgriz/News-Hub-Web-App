@@ -44,47 +44,31 @@
                     <img src="Pages/logo.png" alt="Logo">
                 </div>
 
-                <div class="nav-container active">
-                    <a href="">
-                        <i class="fa-solid fa-envelope" ></i> Inbox
-                    </a><span class="badge" style="background-color: red">8</span>
-                </div> 
-
+                 <div class="nav-container ">
+                <a href="DashboardServlet.do">
+                    <i class="fa-solid fa-house" ></i> Home
+                </a>
+            </div>
+            <div class="nav-container">
+                <a href="studentDetails.jsp">
+                    <i class="fa-solid fa-user"></i> Account
+                </a>
+            </div>
+            <div class="nav-container">
+                <a href="DashboardServlet.do">
+                    <i class="fa-solid fa-bell"></i> Notification
+                </a>
+            </div>
+            <div class="nav-container active">
+                <a href="emailViewPage.jsp">
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+            </div>
                 <div class="nav-container">
-                    <a href="">
-                        <i class="fa-solid fa-envelope"></i>Sent
-                    </a><span class="badge" style="background-color: red; list-style-type: circle;">13</span>
-                </div>
-
-                <div class="nav-container">
-                    <a href="">
-                        <i class="fa-solid fa-envelope"></i>Spam
-                    </a><span class="badge" style="background-color: red">4</span>
-                </div>
-
-                <div class="nav-container">
-                    <a href="">
-                        <i class="fa-solid fa-envelope"></i>Outbox
-                    </a><span class="badge" style="background-color: red">2</span>
-                </div>
-
-                <div class="nav-container">
-                    <a href="">
-                        <i class="fa-solid fa-envelope"></i>Drafts
-                    </a><span class="badge" style="background-color: red">6</span>
-                </div>
-
-                <div class="nav-container">
-                    <a href="">
-                        <i class="fa-solid fa-envelope"></i>Deleted
-                    </a><span class="badge" style="background-color: red">14</span>
-                </div>
-
-                <div class="nav-container">
-                    <a href="">
-                        <i class="fa-solid fa-envelope"></i>Archive
-                    </a><span class="badge" style="background-color: red">8</span>
-                </div>
+                <a href="support.jsp">
+                    <i class="fa-solid fa-magnifying-glass"></i> Help & Support
+                </a>
+            </div>
 
                 <div class="nav-container logout">
                     <a href="LogoutServlet.do">
