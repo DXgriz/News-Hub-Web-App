@@ -37,7 +37,7 @@ form button div
     align-items: center;
     font-size: 100px;
     justify-content: center;
-    
+
 }
 form button h1
 {
@@ -51,9 +51,14 @@ form button h1
     align-items: center;
 }
 
-table 
+table
 {
-   width: 100%;
-   color: grey;
-   background-color: blue; 
+    width: 100%;
+    color: grey;
+    background-color: blue;
+}
+table:hover{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    color: blueviolet;
+    opacity: 5px;
 }

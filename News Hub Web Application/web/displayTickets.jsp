@@ -1,38 +1,35 @@
 <%-- 
-    Document   : displayCourse
-    Created on : 30 Oct 2023, 1:21:59 PM
-    Author     : andil
+    Document   : displayTickets
+    Created on : Nov 2, 2023, 3:59:20 PM
+    Author     : vuyan
 --%>
 
-<%@page import="com.news.hub.entities.Course"%>
-<%@page import="java.util.List"%>
+<%@page import="com.news.hub.entities.SupportTicket"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Admin Panel</title>
+        <title>Support Tickets</title>
+
         <link rel="stylesheet" href="Pages/admin.css">
 
         <style>
             tr:nth-child(odd)
             {
-                background-color:  rgba(27, 79, 250, 0.2);
+                background-color:  appworkspace;
 
             }
             tr:nth-child(even)
             {
-                background-color: rgb(172, 228, 228);
+                background-color: #c7cbd6;
             }
         </style>
     </head>
     <body>
         <%
-
-            List<Course> courses = (List<Course>) session.getAttribute("courses");
-
-
+            List<SupportTicket> tickets = (List<SupportTicket>) session.getAttribute("tickets");
         %>
         <div class="background"></div>
 
@@ -46,8 +43,8 @@
                 </div>
 
                 <div class="nav-container active">
-                    <a href="#">
-                        <i class="fa-solid fa-house" ></i> Manage Users
+                    <a href="AdminPanel.jsp">
+                        <i class="fa-solid fa-house" ></i> Admin Panel
                     </a>
                 </div>
 
@@ -98,23 +95,24 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Course code</th>
-                            <th>Course name</th>
-                            <th>Faculty</th>
+                            <th>Sent By</th>
+                            <th>Priority</th>
+                            <th>Query</th>
 
 
 
                         </tr>
                     </thead>
                     <tbody>
-                        <%                                for (int i = 0; i < courses.size(); i++) {
-                                Course course = courses.get(i);
+                        <%  for (int i = 0; i < tickets.size(); i++) {
+                                SupportTicket ticket = tickets.get(i);
+                                
                         %>
                         <tr>
                             <td><%=i%></td>
-                            <td><%=course.getCourseCode()%></td>
-                            <td><%=course.getCourseName()%></td>
-                            <td><%=course.getFaculty()%></td>
+                            <td><%=ticket.getLoggerEmailAddress()%></td>
+                            <td><%=ticket.getPriority()%></td>
+                            <td><%=new String(ticket.getQuery(),"UTF-8")%></td>
                         </tr>
                         <%
                             }

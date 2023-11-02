@@ -112,8 +112,7 @@ public class DashboardServlet extends HttpServlet {
             //TODO: Get all information realated to student and redirect to Student dashbboard
             
         //SystemUser user = (SystemUser)session.getAttribute("user");
-        
-             
+       
             //populating user inbox 
             for (Email email : emails) {
                 if (email.getRecipient().contains(user)) {
@@ -135,16 +134,9 @@ public class DashboardServlet extends HttpServlet {
             response.sendRedirect("studentDashboard.jsp");
         }
         else if (user instanceof Administrator) {
-            /*
+        
             //get all information related to the authenticated admin,
-            
-            List<Notification> notificationsByUser = ((Administrator) user).getNotifications();
-            session.setAttribute("notificationsByUser", notificationsByUser);
-            */
-            
-            
             //get support tickets to be attended by admin and direct to the admin panel/ dashboard
-            
             
             List<SupportTicket> tickets = supportTicketFacade.findAll();
             session.setAttribute("tickets", tickets);
@@ -154,16 +146,7 @@ public class DashboardServlet extends HttpServlet {
             session.setAttribute("courses", courseFacade.findAll());
 
             response.sendRedirect("AdminPanel.jsp");
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        } 
         
     }
 

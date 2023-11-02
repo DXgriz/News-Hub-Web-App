@@ -78,6 +78,7 @@ public class RegisterServlet extends HttpServlet {
                 user.setId(Long.parseLong(identity));
                 user.setEmailAddress(email);
                 user.setPassword(password);
+                
                 if (userType.equalsIgnoreCase("staff")) {
                     String occupation = request.getParameter("occupation");
 

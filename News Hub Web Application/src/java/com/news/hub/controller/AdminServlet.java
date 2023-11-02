@@ -28,14 +28,19 @@ public class AdminServlet extends HttpServlet
         if(action.equalsIgnoreCase("students"))
         {
             request.getRequestDispatcher("displayStudents.jsp").forward(request, response);
+            
         }else if(action.equalsIgnoreCase("staffMembers"))
         {
             request.getRequestDispatcher("displayStaffTable.jsp").forward(request, response);
-        }else 
+            
+        }else if(action.equalsIgnoreCase("courses"))
         {
           
             request.getRequestDispatcher("displayCourse.jsp").forward(request, response);
-        }       
+        } else{
+            
+            request.getRequestDispatcher("displayTickets.jsp").forward(request, response);
+        }     
         
     }
 
