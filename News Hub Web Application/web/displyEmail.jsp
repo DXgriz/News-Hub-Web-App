@@ -39,7 +39,12 @@
             </div>
             <div class="nav-container active">
                 <a href="emailViewPage.jsp">
-                    <i class="fa-solid fa-envelope"></i> Emails
+                    <i class="fa-solid fa-envelope"></i> Email
+                </a>
+            </div>
+            <div class="nav-container">
+                <a href="support.jsp">
+                    <i class="fa-solid fa-magnifying-glass"></i> Help & Support
                 </a>
             </div>
 

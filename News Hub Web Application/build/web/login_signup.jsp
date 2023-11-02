@@ -71,7 +71,7 @@
                 
                 <span>
                     <c:if test="${not empty requestScope.registrationError}">
-                        <div class="error-message" style="color: red;">
+                        <div class="error-message" style=" position: absolute; right: 5%;color: red;">
                             ${requestScope.registrationError}
                         </div>
                     </c:if>
@@ -115,7 +115,7 @@
                 <hr>
                 <span>
                     <c:if test="${not empty requestScope.loginError}">
-                        <div class="error-message" style="color: red;">
+                        <div class="error-message" style="position: absolute; right: 5%;color: red;">
                             ${requestScope.loginError}
                         </div>
                     </c:if>

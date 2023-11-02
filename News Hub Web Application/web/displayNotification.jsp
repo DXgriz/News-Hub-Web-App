@@ -45,6 +45,11 @@
                 <a href="">
                     <i class="fa-solid fa-envelope"></i> Email
                 </a>
+                <div class="nav-container">
+                <a href="support.jsp">
+                    <i class="fa-solid fa-magnifying-glass"></i> Help & Support
+                </a>
+            </div>
             </div>
 
             <div class="nav-container logout">
