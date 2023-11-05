@@ -68,7 +68,7 @@
 
                 <div class="nav-container logout">
                     <a href="LogoutServlet.do">
-                        <i class="fa-solid fa-door-open"></i>logout
+                        <i class="fa-solid fa-door-open"></i>Logout
                     </a>
                 </div>
             </div>
@@ -80,15 +80,14 @@
 
             <div class="top-nav">
                 <a href="AdminPanel.jsp">Admin Tools</a>
-                <a href="https://www.unizulu.ac.za/contact-us/"><b>about us</b></a>
 
                 <form action="">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="search" name="search" placeholder="Search for anything">
+                    <input type="search" name="search" placeholder="Search for anything...">
                 </form>
 
                 <div class="userProfile">
-                    <i style="color: teal">Admin</i>
+                    <p style="color: black;"><b>Admin</b></p>
                 </div>
             </div>
             <!--
@@ -120,8 +119,7 @@
                         <div>
                             <%=tickets.size()%>
                         </div>
-                            <h6>HP Tickets: <%=highPriorityTickets%></h6><br>
-                            <h6>LP Tickets: <%=lowPriorityTickets%></h6>
+                            
                         <h1>Tickets</h1>
                     </button>
 
