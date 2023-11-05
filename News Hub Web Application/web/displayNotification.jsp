@@ -89,7 +89,7 @@
                     <%
                     
                         Notification selectedNotification = (Notification)session.getAttribute("selectedNotification");
-                        File file = new File("D:/Files/projects/Git projects/News Hub/News-Hub-Web-App/News Hub Web Application/web/Notifications/"+selectedNotification.getFileName());
+                        File file = new File("D:/Files/projects/Git projects/News-Hub-Web-App/News Hub Web Application/web/Notifications/"+selectedNotification.getFileName());
                         file.createNewFile();
                         
                        OutputStream os = new FileOutputStream(file);
