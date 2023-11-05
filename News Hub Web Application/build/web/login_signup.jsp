@@ -20,7 +20,7 @@
                     <input type="text" name="lastname"  placeholder="Last name" required="">
                 </div>
                 <div class="input">
-                    <input type="text" name="identity" placeholder="ID or Passport Number" required="">
+                    <input type="text" name="identity" placeholder="ID or Passport Number" required="" maxlength="13" minlength="13">
                 </div>
                 <div class="input">
                     <input type="email" name="email" placeholder="Email address" required="">
@@ -77,9 +77,9 @@
                     </c:if>
                 </span>
 
-                <button type="submit" id="createAccBtn">submit</button>
+                <button type="submit" id="createAccBtn" style="background-color: rgba(0, 255, 255, 0.5); position: relative; width: 20%;height: 5%; border: none; border-radius: 50px; margin-left: 25%; margin-top: 5%; " class="sub-button">submit</button>
 
-                <button onclick="showSignUp()">Login</button>
+                <button onclick="showSignUp()" style="background-color: var(--first-additinal); position: relative; width: 20%;height: 5%; border: none; border-radius: 50px; margin-right: 25%; margin-top: 5%;" class="sub-button">Login</button>
             </form>
         </div>
 
@@ -103,15 +103,15 @@
             </div>
             <form action="LoginServlent.do" method="POST">
                 <div class="input">
-                    <input type="email" name="email" placeholder="Please enter your emai" required="">
+                    <input type="email" name="email" placeholder="Please enter your email" required="">
                 </div>
                 <div class="input">
-                    <input type="password" name="password" placeholder="Please enter your passowrd" required="">
+                    <input type="password" name="password" placeholder="Please enter your password" required="">
                 </div>
                 <button id="submit-btn" type="submit">
                     Log in
                 </button>
-                <a href="">Forgotten password</a>
+                <a href="resetPassword.jsp">Forgot password</a>
                 <hr>
                 <span>
                     <c:if test="${not empty requestScope.loginError}">

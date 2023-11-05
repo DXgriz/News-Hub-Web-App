@@ -48,6 +48,14 @@
         <servlet-name>DeleteUser</servlet-name>
         <servlet-class>com.news.hub.controller.DeleteUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>com.news.hub.controller.ResetPassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchServlet</servlet-name>
+        <servlet-class>com.news.hub.controller.SearchServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlent</servlet-name>
         <url-pattern>/LoginServlent.do</url-pattern>
@@ -96,6 +104,14 @@
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/DeleteUser.do</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/ResetPassword.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SearchServlet</servlet-name>
+        <url-pattern>/SearchServlet.do</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -103,6 +119,10 @@
     </session-config>
     <error-page>
         <error-code>404</error-code>
+        <location>/page_error.html</location>
+    </error-page>
+    <error-page>
+        <error-code>405</error-code>
         <location>/page_error.html</location>
     </error-page>
     <error-page>

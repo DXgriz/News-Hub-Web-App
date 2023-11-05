@@ -22,7 +22,7 @@ form button
     display: flex;
     margin-left: 2%;
     border-radius: 50px;
-    background-color: var(--fisrt-add);
+    background-color: var(--card-bc);
     cursor: pointer;
 }
 form button div

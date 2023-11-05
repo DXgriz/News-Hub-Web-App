@@ -30,7 +30,7 @@
     
     <div class="container">
         
-        <div class="left-nav">
+        <div class="left-nav" id="left-side">
             
             <div class="logo-cont">
                 <img src="Pages/logo.png" alt="Logo">
@@ -79,7 +79,7 @@
             START: TOP-NAV
         -->
 
-        <div class="top-nav">
+        <div class="top-nav" id="topNav">
              <button id="composeBtn" ><i class="fa-solid fa-pen"></i><b>notification</b></button>
             <a href="https://www.unizulu.ac.za/contact-us/"><b>about us</b></a>
 
@@ -89,7 +89,13 @@
             </form>
 
             <div class="userProfile">
-                <i style="color: black;"><%=userInitials%></i>
+                <h1 style="color: black;">
+                    <% 
+                        user = (SystemUser)session.getAttribute("user");
+                        
+                    %>
+                    <b><%= user.getFirstName().substring(0, 1) + user.getLastName().substring(0, 1)%></b>
+                </h1>
             </div>
         </div>
         <!--
@@ -136,7 +142,7 @@
                                 <option value="4">4</option>
                             </select>
                             
-                            <button class="cancel-btn" id="composeBtn"><b>X</b></button>
+                            <button class="cancel-btn" id=" "><b>X</b></button>
                         </div>
 
                         <div class="subject">
@@ -151,7 +157,7 @@
                         <div class="attachment">
                             <input type="file" name="file" 
                                    accept="image/png,image/jpeg,image/jpg,document/doc,document/pdf" 
-                                   multiple="multiple">
+                                   multiple="multiple" required="">
                         </div>
 
                         <div class="submit-btn">

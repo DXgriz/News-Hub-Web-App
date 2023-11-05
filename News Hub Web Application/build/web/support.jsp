@@ -51,10 +51,10 @@
                         </div>
 
                         <div class="input-query">
-                            <textarea id="query" name="query" placeholder="Write anything here..."></textarea>
+                            <textarea id="query" name="query" placeholder="Write anything here..." rows="12" cols="80" ></textarea>
                         </div>
 
-                        <div class="input-chk">
+                        <div class="input-chk" style="visibility: hidden;">
                             <input type="checkbox" id="high" name="high" value="high">
                             <label for="high"> High Priority</label><br>
                         </div>

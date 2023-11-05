@@ -169,6 +169,10 @@
     width: 4.5%;
     border-radius: 200px;
     background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .top-nav form

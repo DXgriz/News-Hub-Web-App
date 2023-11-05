@@ -4,6 +4,7 @@
     Author     : andil
 --%>
 
+<%@page import="com.news.hub.entities.SystemUser"%>
 <%@page import="java.io.OutputStream"%>
 <%@page import="java.io.FileOutputStream"%>
 <%@page import="java.io.File"%>
@@ -73,13 +74,19 @@
             <a href="https://www.unizulu.ac.za/contact-us/"><b>contact us</b></a>
             <a href="https://www.unizulu.ac.za/contact-us/"><b>about us</b></a>
 
-            <form action="">
+            <form action="SearchServlet.do" method="post">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="search" name="search" placeholder="Search for anything">
             </form>
 
             <div class="userProfile">
-                
+                <h1 style="color: black;">
+                    <% 
+                        SystemUser user = (SystemUser)session.getAttribute("user");
+                        
+                    %>
+                    <b><%= user.getFirstName().substring(0, 1) + user.getLastName().substring(0, 1)%></b>
+                </h1>
             </div>
         </div>
         <!--
@@ -107,9 +114,9 @@
                 %>
                 <button type="submit" name="notificationId" value="<%=notif.getNotifId()%>" class="notification-summary">
                     <img src="Notifications/<%=notif.getFileName()%>" alt="" >  
-                      <h1> <%=notif.getSubjectLine()%></h1>    
+                    <h1 style="color: black;"> <%=notif.getSubjectLine()%></h1>    
                        <div class="notification-date">
-                           <%=notif.getCreationDate().getDate()%> / <%=notif.getCreationDate().getMonth()+1%> / <%=notif.getCreationDate().getYear()%>
+                           <%=notif.getCreationDate().getDate()%> / <%=notif.getCreationDate().getMonth()+1%> / <%= (notif.getCreationDate().getYear()+"").substring(1, 3) %>
                        </div>        
                 </button>
                 <%
